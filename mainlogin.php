@@ -11,7 +11,7 @@
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container"> <a class="navbar-brand" href="http://localhost/New Site/mainlogin.php">
+    <div class="container"> <a class="navbar-brand" href="http://localhost/YouBet/mainlogin.php">
         <i class="fa d-inline fa-lg fa-circle-o"></i>
         <b> Youbet</b>
       </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar11">
@@ -21,15 +21,15 @@
         <ul class="navbar-nav">
           <li class="nav-item"> <a class="nav-link" href="#"><i class="fa fa-puzzle-piece"></i>&nbsp;My Bets</a> </li>
           <li class="nav-item"> <a class="nav-link" href="#"><i class="fa fa-credit-card-alt"></i>&nbsp;Credit</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="http://localhost/New Site/account.html"><i class="fa fa-user fa-fw"></i>Account</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="http://localhost/YouBet/account.html"><i class="fa fa-user fa-fw"></i>Account</a> </li>
           <li class="nav-item"> <a class="nav-link" href="#"><i class="fa fa-star-o"></i>&nbsp;Promotions</a> </li>
           <li class="nav-item"> <a class="nav-link" href="#"><i class="fa fa-envelope-o	"></i>&nbsp;News</a> </li>
         </ul>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item"> <a class="nav-link">Your Balance:</a> </li>
           <li class="nav-item"> <a class="nav-link" style="color:lightgreen">1500.98 Credit</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="http://localhost/New Site/account.html">Hello,sarinpost </a> </li>
-        </ul> <a class="btn navbar-btn ml-md-2 text-light btn-danger" href="http://localhost/New Site/main.html"><i class="fa fa-sign-out"></i>&nbsp;sign out</a>
+          <li class="nav-item"> <a class="nav-link" href="http://localhost/YouBet/account.html">Hello,sarinpost </a> </li>
+        </ul> <a class="btn navbar-btn ml-md-2 text-light btn-danger" href="http://localhost/YouBet/main.html"><i class="fa fa-sign-out"></i>&nbsp;sign out</a>
       </div>
     </div>
   </nav>
@@ -191,10 +191,10 @@
             while($row = $result->fetch_assoc()) { 
         ?>    
                             <tr style="" class="table-light">     
-                            <td class="text-right"><a class="navbar-brand" href="http://localhost/New Site/mainlogin.php"><i class="fa fa-external-link-square"></i></a>
+                            <td class="text-right"><a class="navbar-brand" href="http://localhost/YouBet/mainlogin.php"><i class="fa fa-external-link-square"></i></a>
                             <td class="text-center"><?php echo $row["Begindate"] ?></td></a>
                             <td class="text-center"><?php echo $row["Handicaphome"] ." : ". $row["Handicapaway"]?></td>
-                            <td class="text-center"><a href="http://localhost/New Site/mainlogin.php"><?php echo $row["Teamhome"]?></a></td>
+                            <td class="text-center"><a href="http://localhost/YouBet/mainlogin.php"><?php echo $row["Teamhome"]?></a></td>
                             <td class="text-center"><a href="#" class="btn rounded-0 btn-info text-light"><?php echo $row["Oddshome"] ?></a></td>
                             <td class="text-center"><a href="#" class="btn rounded-0 btn-info"><?php echo $row["Oddsdraw"] ?></a></td>
                             <td class="text-center"><a href="#" class="btn btn-info rounded-0"><?php echo $row["Oddsaway"] ?></a></td>
