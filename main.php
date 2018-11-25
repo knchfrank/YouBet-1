@@ -10,7 +10,7 @@
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container"> <a class="navbar-brand mx-2" href="main.html">
+    <div class="container"> <a class="navbar-brand mx-2" href="main.php">
         <i class="fa d-inline fa-lg fa-circle-o"></i>
         <b> Youbet</b>
       </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar11">
@@ -25,7 +25,7 @@
           <li class="nav-item"> <a class="nav-link" href="#"><i class="fa fa-envelope-o	"></i>&nbsp;News</a> </li>
         </ul>
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item" > <a class="btn btn-primary" href="mainlogin.html">LOG IN</a> </li>
+          <li class="nav-item" > <a class="btn btn-primary" href="login.html">LOG IN</a> </li>
         </ul> <a class="btn navbar-btn ml-md-2 btn-orange text-light " href="register.html"><i class="fa fa-registered" style=""></i>&nbsp;SIGN UP</a>
       </div>
     </div>
@@ -56,7 +56,7 @@
       </div>
     </div>
   </div>
-  <div class="py-0">
+  <!-- <div class="py-0">
     <div class="container">
       <div class="row">
         <div class="col-md-12" style="">
@@ -147,12 +147,81 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
+
+<?php
+        require('php/getConnection.php');
+        $conn = getConnection();
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        } 
+
+        $sql = "SELECT Begindate, Handicaphome, Handicapaway, Teamhome, Oddshome,Oddsdraw,Oddsaway,Teamaway,Type
+                FROM Matchinfo;";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) { ?>
+            <div class="py-0">
+                <div class="container">
+                <div class="row">
+                    <div class="col-md-12" style="">
+                    <table class="table" style="">
+                        <thead>
+                        <tr class="border border-dark text-center">
+                            <th class="">Watch</th>
+                            <th class="">Date (GMT + 7:00)</th>
+                            <th class="" style="width: 27px;">Handicap</th>
+                            <th class="text-right">Team Home</th>
+                            <th class="text-center"></th>
+                            <th class="text-center">DRAW</th>
+                            <th class="text-center"></th>
+                            <th class="text-left">Team Away</th>
+                            <th class="text-center">League</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        
+            
+        <?php        
+            // output data of each row
+            while($row = $result->fetch_assoc()) { 
+        ?>    
+                            <tr style="" class="table-light">     
+                            <td class="text-right"><a class="navbar-brand" href="http://localhost/YouBet/mainlogin.php"><i class="fa fa-external-link-square"></i></a>
+                            <td class="text-center"><?php echo $row["Begindate"] ?></td></a>
+                            <td class="text-center"><?php echo $row["Handicaphome"] ." : ". $row["Handicapaway"]?></td>
+                            <td class="text-center"><a href="http://localhost/YouBet/teaminfo.html"><?php echo $row["Teamhome"]?></a></td>
+                            <td class="text-center"><a href="#" class="btn rounded-0 btn-info text-light"><?php echo $row["Oddshome"] ?></a></td>
+                            <td class="text-center"><a href="#" class="btn rounded-0 btn-info"><?php echo $row["Oddsdraw"] ?></a></td>
+                            <td class="text-center"><a href="#" class="btn btn-info rounded-0"><?php echo $row["Oddsaway"] ?></a></td>
+                            <td style="text-center"><?php echo $row["Teamaway"] ?></td>
+                            <td class="text-center"><?php echo $row["Type"] ?></td>
+                            </tr>  
+                            </a>  
+                            </div>                    
+        <?php 
+            }
+        ?>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+                </div>
+            </div>
+    <?php
+        } else {
+            echo "0 results";
+        }
+
+        $conn->close();
+    ?> 
+
   <div class="py-3 bg-dark">
       <div class="container">
         <div class="row">
           <div class="col-lg-6 col-6 p-3">
-            <div class="container"> <a class="navbar-brand" href="mainlogin.html">
+            <div class="container"> <a class="navbar-brand" href="mainlogin.php">
                 <h2 style="color:white"><i class="fa d-inline fa-lg fa-circle-o"></i><b> Youbet</b> </h2>
               </a></div>
             <ul class="list-unstyled">
