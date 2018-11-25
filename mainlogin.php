@@ -29,7 +29,7 @@
           <li class="nav-item"> <a class="nav-link">Your Balance:</a> </li>
           <li class="nav-item"> <a class="nav-link" style="color:lightgreen">1500.98 Credit</a> </li>
           <li class="nav-item"> <a class="nav-link" href="http://localhost/YouBet/account.html">Hello,sarinpost </a> </li>
-        </ul> <a class="btn navbar-btn ml-md-2 text-light btn-danger" href="http://localhost/YouBet/main.html"><i class="fa fa-sign-out"></i>&nbsp;sign out</a>
+        </ul> <a class="btn navbar-btn ml-md-2 text-light btn-danger" href="http://localhost/YouBet/main.php"><i class="fa fa-sign-out"></i>&nbsp;sign out</a>
       </div>
     </div>
   </nav>
@@ -194,7 +194,7 @@
                             <td class="text-right"><a class="navbar-brand" href="http://localhost/YouBet/mainlogin.php"><i class="fa fa-external-link-square"></i></a>
                             <td class="text-center"><?php echo $row["Begindate"] ?></td></a>
                             <td class="text-center"><?php echo $row["Handicaphome"] ." : ". $row["Handicapaway"]?></td>
-                            <td class="text-center"><a href="http://localhost/YouBet/mainlogin.php"><?php echo $row["Teamhome"]?></a></td>
+                            <td class="text-center"><a href="http://localhost/YouBet/teaminfo.html"><?php echo $row["Teamhome"]?></a></td>
                             <td class="text-center"><a href="#" class="btn rounded-0 btn-info text-light"><?php echo $row["Oddshome"] ?></a></td>
                             <td class="text-center"><a href="#" class="btn rounded-0 btn-info"><?php echo $row["Oddsdraw"] ?></a></td>
                             <td class="text-center"><a href="#" class="btn btn-info rounded-0"><?php echo $row["Oddsaway"] ?></a></td>
@@ -223,7 +223,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 col-6 p-3">
-          <div class="container"> <a class="navbar-brand" href="mainlogin.html">
+          <div class="container"> <a class="navbar-brand" href="mainlogin.php">
               <h2 style="color:white"><i class="fa d-inline fa-lg fa-circle-o"></i><b> Youbet</b> </h2>
             </a></div>
           <ul class="list-unstyled">
