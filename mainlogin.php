@@ -15,11 +15,8 @@ $UserName=$_SESSION['Username'];
     }
 ?>
 
-
-
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>Youbet</title>
   <meta charset="utf-8">
@@ -29,7 +26,6 @@ $UserName=$_SESSION['Username'];
 </head>
 
 <body>
-  
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container"> <a class="navbar-brand" href="http://localhost/YouBet/mainlogin.php">
         <i class="fa d-inline fa-lg fa-circle-o"></i>
@@ -47,16 +43,10 @@ $UserName=$_SESSION['Username'];
         </ul>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item"> <a class="nav-link">Your Balance:</a> </li>
-<<<<<<< HEAD
           <li class="nav-item"> <a class="nav-link" style="color:lightgreen"><?php echo "$Credit";?></a> </li>
           <li class="nav-item"> <a class="nav-link" href="http://localhost/YouBet/account.html">Hello, <?php echo "$UserName"; ?></a> </li>
-        </ul> <a class="btn navbar-btn ml-md-2 text-light btn-danger" href="http://localhost/YouBet/main.html"><i class="fa fa-sign-out"></i>&nbsp;sign out</a>
+        </ul> <a class="btn navbar-btn ml-md-2 text-light btn-danger" href="http://localhost/YouBet/mainlogin.php "><i class="fa fa-sign-out"></i>&nbsp;sign out</a>
 
-=======
-          <li class="nav-item"> <a class="nav-link" style="color:lightgreen">1500.98 Credit</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="http://localhost/YouBet/account.html">Hello,sarinpost </a> </li>
-        </ul> <a class="btn navbar-btn ml-md-2 text-light btn-danger" href="http://localhost/YouBet/main.php"><i class="fa fa-sign-out"></i>&nbsp;sign out</a>
->>>>>>> c2c62138ff4a31cf598cb827970d363951e24959
       </div>
     </div>
   </nav>
