@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,7 +30,7 @@
       </div>
     </div>
   </nav>
-  <div class="py-5 text-center text-md-right text-light" style="	background-image: url(Pics/5485161-football-hd-wallpapers.jpg);	background-position: right bottom;	background-size: cover;	background-repeat: repeat;	background-attachment: fixed;">
+  <div class="py-5 text-center text-md-right text-light" style="background-image: url(Pics/5485161-football-hd-wallpapers.jpg);	background-position: right bottom;	background-size: cover;	background-repeat: repeat;	background-attachment: fixed;">
     <div class="container">
       <div class="row">
         <div class="p-5 mx-auto mx-md-0 ml-md-auto col-10 col-md-9">
@@ -64,10 +63,11 @@
               <div class="tab-pane fade" id="tabone" role="tabpanel">
                 <h1>Top-up</h1>
                 <h3 class="">Available Balance :&nbsp;<span class="badge badge-success">1500.98 Credit</span></h3>
+                
                 <form class="text-left">
                   <div class="form-group"> <label for="form17">User Name</label> <input type="text" class="form-control" name="username" placeholder="username" style=""> </div>
                   <div class="form-group"> <label for="form17">Password</label> <input type="password" class="form-control" name="password" placeholder="*************" style=""> </div>
-                  <div class="form-group"> <label for="form17">CCV</label> <input type="number" class="form-control" name="ccv" placeholder="***" style=""> </div>
+                  <div class="form-group"> <label for="form17">CCV</label> <input type="password" class="form-control" name="ccv" placeholder="***" style=""> </div>
                 </form>
                 <div class="row">
                   <div class="text-center col-md-12">
@@ -151,7 +151,9 @@
                     </div>
                   </div>
                 </div>
+                
               </div>
+              
               <div class="tab-pane fade active show" id="tabtwo" role="tabpanel">
                 <h1>Withdraw</h1>
                 <h3 class="">Available Balance :&nbsp;<span class="badge badge-success">1500.98 Credit</span></h3>
