@@ -23,7 +23,7 @@
           <li class="nav-item"> <a class="nav-link" href="#">About</a> </li>
         </ul>
         <ul class="navbar-nav">
-          <li class="nav-item"> <a class="nav-link" href="login.html">Log in</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="login.php">Log in</a> </li>
           <li class="nav-item"> <a class="nav-link text-primary" href="register.html">Register</a> </li>
         </ul>
       </div>

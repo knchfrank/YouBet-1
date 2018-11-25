@@ -43,7 +43,12 @@ if ($conn->connect_error) {
           <li class="nav-item"> <a class="nav-link">Your Balance:</a> </li>
           <li class="nav-item"> <a class="nav-link" style="color:lightgreen"><?php echo "$Credit";?></a> </li>
           <li class="nav-item"> <a class="nav-link" href="http://localhost/YouBet/account.html">Hello, <?php echo "$UserName"; ?></a> </li>
+<<<<<<< HEAD
           </ul> <a class="btn navbar-btn ml-md-2 text-light btn-danger" href="http://localhost/YouBet/mainlogin.php "><i class="fa fa-sign-out"></i>&nbsp;sign out</a>
+=======
+        </ul> <a class="btn navbar-btn ml-md-2 text-light btn-danger" href="http://localhost/YouBet/main.php"><i class="fa fa-sign-out"></i>&nbsp;sign out</a>
+
+>>>>>>> 6e320782b47a457da304337dcc763ea6a054234d
       </div>
     </div>
   </nav>
