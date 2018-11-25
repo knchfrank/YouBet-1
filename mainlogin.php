@@ -5,7 +5,7 @@ $conn = getConnection();
 if ($conn->connect_error) {
    die("Connection failed: " . $conn->connect_error);
 } 
-$UserName=$_SESSION['Username'];
+    $UserName=$_SESSION['Username'];
     $query = "SELECT * FROM User WHERE UserID = '$UserName'";
     $result = $conn->query($query);
     $rs = $result->fetch_array(MYSQLI_ASSOC);
@@ -48,7 +48,7 @@ $UserName=$_SESSION['Username'];
           <li class="nav-item"> <a class="nav-link">Your Balance:</a> </li>
           <li class="nav-item"> <a class="nav-link" style="color:lightgreen"><?php echo "$Credit";?></a> </li>
           <li class="nav-item"> <a class="nav-link" href="http://localhost/YouBet/account.html">Hello, <?php echo "$UserName"; ?></a> </li>
-        </ul> <a class="btn navbar-btn ml-md-2 text-light btn-danger" href="http://localhost/YouBet/main.html"><i class="fa fa-sign-out"></i>&nbsp;sign out</a>
+        </ul> <a class="btn navbar-btn ml-md-2 text-light btn-danger" href="http://localhost/YouBet/main.php"><i class="fa fa-sign-out"></i>&nbsp;sign out</a>
 
       </div>
     </div>
