@@ -1,3 +1,22 @@
+<?php
+session_start();
+require('php/getConnection.php');
+$conn = getConnection();
+if ($conn->connect_error) {
+   die("Connection failed: " . $conn->connect_error);
+} 
+$UserName=$_SESSION['Username'];
+    $query = "SELECT * FROM User WHERE UserID = '$UserName'";
+    $result = $conn->query($query);
+    $rs = $result->fetch_array(MYSQLI_ASSOC);
+    if(isset($rs))
+    {
+      $Credit = $rs['Credit'];
+    }
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 
@@ -10,6 +29,7 @@
 </head>
 
 <body>
+  
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container"> <a class="navbar-brand" href="http://localhost/YouBet/mainlogin.php">
         <i class="fa d-inline fa-lg fa-circle-o"></i>
@@ -27,9 +47,10 @@
         </ul>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item"> <a class="nav-link">Your Balance:</a> </li>
-          <li class="nav-item"> <a class="nav-link" style="color:lightgreen">1500.98 Credit</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="http://localhost/YouBet/account.html">Hello,sarinpost </a> </li>
+          <li class="nav-item"> <a class="nav-link" style="color:lightgreen"><?php echo "$Credit";?></a> </li>
+          <li class="nav-item"> <a class="nav-link" href="http://localhost/YouBet/account.html">Hello, <?php echo "$UserName"; ?></a> </li>
         </ul> <a class="btn navbar-btn ml-md-2 text-light btn-danger" href="http://localhost/YouBet/main.html"><i class="fa fa-sign-out"></i>&nbsp;sign out</a>
+
       </div>
     </div>
   </nav>
@@ -153,18 +174,11 @@
   </div> -->
 
   <?php
-        require('php/getConnection.php');
-        $conn = getConnection();
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        } 
-
         $sql = "SELECT Begindate, Handicaphome, Handicapaway, Teamhome, Oddshome,Oddsdraw,Oddsaway,Teamaway,Type
                 FROM Matchinfo;";
         $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) { ?>
+        if ($result->num_rows > 0) { 
+    ?>
             <div class="py-0">
                 <div class="container">
                 <div class="row">
