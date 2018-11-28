@@ -75,18 +75,33 @@ if ($conn->connect_error) {
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbar11">
-        <ul class="navbar-nav">
-          <li class="nav-item"> <a class="nav-link" href="#"><i class="fa fa-puzzle-piece"></i>&nbsp;My Bets</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#"><i class="fa fa-credit-card-alt"></i>&nbsp;Credit</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#"><i class="fa fa-user fa-fw"></i>Account</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#"><i class="fa fa-star-o"></i>&nbsp;Promotions</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#"><i class="fa fa-envelope-o	"></i>&nbsp;News</a> </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item"> <a class="nav-link">Your Balance:</a> </li>
-          <li class="nav-item"> <a class="nav-link" style="color:lightgreen"><?php echo $Credit;?></a> </li>
-          <li class="nav-item"> <a class="nav-link">Hello, <?php echo $UserName;?> </a> </li>
-        </ul> <a class="btn navbar-btn ml-md-2 text-light btn-danger" href="main.php"><i class="fa fa-sign-out"></i>&nbsp;sign out</a>
+      <?php
+          if($_SESSION["isLogged"] == 1) {
+            echo "<ul class=\"navbar-nav ml-auto; margin-left:0px;\">
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"login.php\"><i class=\"fa fa-puzzle-piece\"></i>&nbsp;My Bets</a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-credit-card-alt\"></i>&nbsp;Credit</a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-user fa-fw\"></i>Account</a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-star-o\"></i>&nbsp;Promotions</a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-envelope-o	\"></i>&nbsp;News</a> </li>
+            </ul>
+            <ul class=\"navbar-nav ml-auto\">
+            <li class=\"nav-item\"> <a class=\"nav-link\">Your Balance:</a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" style=\"color:lightgreen\"> $Credit </a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"http://localhost/YouBet/account.php\">Hello, $UserName </a> </li>
+            </ul> <a class=\"btn navbar-btn ml-md-2 text-light btn-danger\" href=\"http://localhost/YouBet/php/Userlogin.php\"><i class=\"fa fa-sign-out\"></i>&nbsp;sign out</a>";
+          } else {
+            echo "<ul class=\"navbar-nav ml-auto; margin-left:0px;\">
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"login.php\"><i class=\"fa fa-puzzle-piece\"></i>&nbsp;My Bets</a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"login.php\"><i class=\"fa fa-credit-card-alt\"></i>&nbsp;Credit</a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"login.php\"><i class=\"fa fa-user fa-fw\"></i>Account</a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-star-o\"></i>&nbsp;Promotions</a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-envelope-o	\"></i>&nbsp;News</a> </li>
+            </ul>
+            <ul class=\"navbar-nav ml-auto\">
+            <li class=\"nav-item\" > <a class=\"btn btn-primary\" href=\"login.php\">LOG IN</a> </li>
+            </ul> <a class=\"btn navbar-btn ml-md-2 btn-orange text-light \" href=\"register.html\"><i class=\"fa fa-registered\" style=\"\"></i>&nbsp;SIGN UP</a>";
+          }
+        ?>
       </div>
     </div>
   </nav>
