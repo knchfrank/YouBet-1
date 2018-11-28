@@ -24,8 +24,83 @@ if ($conn->connect_error) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <link rel="stylesheet" href="theme2.css">
-</head>
+  <style>
+    /* Button used to open the contact form - fixed at the bottom of the page */
+    /* The popup form - hidden by default */
+    .form-popup {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      right: 15px;
+      border: 3px solid #f1f1f1;
+      z-index: 9;
+    }
 
+    /* Add styles to the form container */
+    .form-container {
+      max-width: 300px;
+      padding: 10px;
+      background-color: white;
+    }
+
+    /* Full-width input fields */
+    .form-container input[type=text],
+    .form-container input[type=password] {
+      width: 100%;
+      padding: 15px;
+      margin: 5px 0 22px 0;
+      border: none;
+      background: #f1f1f1;
+    }
+
+    /* When the inputs get focus, do something */
+    .form-container input[type=text]:focus,
+    .form-container input[type=password]:focus {
+      background-color: #ddd;
+      outline: none;
+    }
+
+    /* Set a style for the submit/login button */
+    .form-container .btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 16px 20px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      margin-bottom: 10px;
+      opacity: 0.8;
+    }
+
+    /* Add a red background color to the cancel button */
+    .form-container .cancel {
+      background-color: red;
+    }
+
+    /* Add some hover effects to buttons */
+    .form-container .btn:hover,
+    .open-button:hover {
+      opacity: 1;
+    }
+  </style>
+</head>
+<style>
+  .form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+  }
+
+  .form-container {
+    max-width: 400px;
+    padding: 20px;
+    background-color: white;
+  }
+
+</style>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container"> <a class="navbar-brand mx-2" href="main.php">
@@ -130,9 +205,9 @@ if ($conn->connect_error) {
                             <td class="text-center"><?php echo $row["Begindate"]; ?></td></a>
                             <td class="text-center"><?php echo $row["Handicaphome"] ." : ". $row["Handicapaway"]?></td>
                             <td class="text-center"><a href="http://localhost/YouBet/teaminfo.html"><?php echo $row["Teamhome"]?></a></td>
-                            <td class="text-center"><a href="#" class="btn rounded-0 btn-info text-light"><?php echo $row["Oddshome"] ?></a></td>
-                            <td class="text-center"><a href="#" class="btn rounded-0 btn-info"><?php echo $row["Oddsdraw"] ?></a></td>
-                            <td class="text-center"><a href="#" class="btn btn-info rounded-0"><?php echo $row["Oddsaway"] ?></a></td>
+                            <td class="text-center"><a class="btn rounded-0 btn-info text-light" onclick = "openForm()"><?php echo $row["Oddshome"] ?></a></td>
+                            <td class="text-center"><a class="btn rounded-0 btn-info text-light" onclick = "openForm()"><?php echo $row["Oddsdraw"] ?></a></td>
+                            <td class="text-center"><a class="btn btn-info rounded-0 text-light" onclick = "openForm()"><?php echo $row["Oddsaway"] ?></a></td>
                             <td style="text-center"><?php echo $row["Teamaway"] ?></td>
                             <td class="text-center"><?php echo $row["Type"] ?></td>
                             </tr>  
@@ -193,6 +268,124 @@ if ($conn->connect_error) {
         </div>
       </div>
     </div>
+          <div class="form-popup" id="myForm" style="display: none; width: 485px;">
+            <div class="row">
+              <div class="col-md-12">
+                <h1 class="display-4 text-center py-1 mb-0 text-secondary bg-light">BETTING</h1>
+                <div class="row flex-row justify-content-center">
+                  <div class="col-lg-11 flex-row justify-content-between bg-secondary d-inline-flex align-items-end"><a class="btn btn-warning py-0 my-1" href="#">Match Info</a>
+                    <p class="mb-0 py-1 text-white">Your balance&nbsp;<span class="badge border-warning border text-warning">1500.98</span>&nbsp;Credit</p>
+                  </div>
+                </div>
+                <div class="row flex-row justify-content-center">
+                  <div class="border col-lg-11 flex-row justify-content-between bg-secondary d-inline-flex align-items-end">
+                    <p class="mb-0 py-1 text-white">Celtic FC</p>
+                    <p class="mb-0 py-1 text-white">HDC&nbsp;<span class="badge border-warning border text-warning">1:0</span></p>
+                    <p class="mb-0 py-1 text-white">Ajax</p>
+                  </div>
+                </div>
+                <div class="row flex-row justify-content-center">
+                  <div class=" col-lg-11 flex-row bg-secondary d-inline-flex align-items-center justify-content-center">
+                    <img class="d-block rounded-circle img-fluid mx-3 my-2" src="E:/New Site/Pics/team/celtic.png" style="	width: 80px;">
+                    <h3 class="mb-0 py-1 text-white">VS</h3>
+                    <img class="d-block rounded-circle img-fluid mx-3 my-2" src="E:/New Site/Pics/team/Ajax.png" style="	width: 80px;">
+                  </div>
+                </div>
+                <div class="row justify-content-center">
+                  <div class="border col-lg-11 bg-secondary">
+                    <p class="text-white m-0"> Win Probability </p>
+                    <div class="progress my-1">
+                      <div class="progress-bar progress-bar-striped bg-primary" role="progressbar" style="width:78.5%">78.5%</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row flex-row justify-content-center">
+                  <div class="col-lg-11 flex-row bg-secondary d-inline-flex align-items-center justify-content-center">
+                    <p class="mx-3 my-0 text-white">Home</p>
+                    <p class="mx-3 my-0 text-white">Draw</p>
+                    <p class="mx-3 my-0 text-white">Away</p>
+                  </div>
+                </div>
+                <div class="row flex-row justify-content-center">
+                  <div class="col-lg-11 flex-row bg-secondary d-inline-flex align-items-center justify-content-center">
+                    <a class="btn pi-draggable btn-outline-light m-1 p-3" href="#">0.33</a>
+                    <a class="btn pi-draggable btn-outline-light m-1 p-3" href="#">0.88</a>
+                    <a class="btn pi-draggable btn-outline-light m-1 p-3" href="#">0.8</a>
+                  </div>
+                </div>
+                <div class="row flex-row justify-content-center">
+                  <div class="justify-content-between bg-secondary col-lg-6 align-items-center d-flex flex-row">
+                    <p class="text-white m-0"> Celtic FC VS. Ajax </p>
+                  </div>
+                  <div class="col-lg-5 flex-row justify-content-between bg-secondary d-inline-flex align-items-end"></div>
+                </div>
+                <div class="row flex-row justify-content-center">
+                  <div class="flex-row bg-secondary d-inline-flex col-lg-5 align-items-center justify-content-end">
+                    <p class="mb-0 py-1 text-white">Your Bet: DRAW&nbsp;<span class="badge border-warning border text-warning badge-danger">0.88</span></p>
+                  </div>
+                  <div class="col-lg-6 bg-secondary">
+                    <form class="form-inline pi-draggable my-1">
+                      <div class="input-group">
+                        <input type="number" class="form-control" placeholder="500.00">
+                        <div class="input-group-append"><button class="btn btn-warning text-body" type="button">Credit</button></div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div class="row flex-row justify-content-center">
+                  <div class="border col-lg-11 flex-row justify-content-between d-inline-flex align-items-end bg-info">
+                    <p class="mb-0 py-1 text-white">Betting Information</p>
+                  </div>
+                </div>
+                <div class="row flex-row justify-content-center">
+                  <div class="border col-lg-6 flex-row justify-content-between d-inline-flex align-items-end bg-light">
+                    <p class="mb-0 py-1 text-danger">Bet Value</p>
+                  </div>
+                  <div class="border flex-row d-inline-flex align-items-end col-lg-5 justify-content-end bg-light">
+                    <p class="mb-0 py-1 text-danger">500.00 credit</p>
+                  </div>
+                </div>
+                <div class="row flex-row justify-content-center">
+                  <div class="border col-lg-6 flex-row justify-content-between d-inline-flex align-items-end bg-light">
+                    <p class="mb-0 py-1 text-dark">Rate</p>
+                  </div>
+                  <div class="border flex-row d-inline-flex align-items-end col-lg-5 justify-content-end bg-light">
+                    <p class="mb-0 py-1 text-dark">x 0.88</p>
+                  </div>
+                </div>
+                <div class="row flex-row justify-content-center">
+                  <div class="border col-lg-6 flex-row justify-content-between d-inline-flex align-items-end bg-light">
+                    <p class="mb-0 py-1 text-primary">Return</p>
+                  </div>
+                  <div class="border flex-row d-inline-flex align-items-end col-lg-5 justify-content-end bg-light">
+                    <p class="mb-0 py-1 text-primary">940.00 credit</p>
+                  </div>
+                </div>
+                <div class="row flex-row justify-content-center">
+                  <div class="border col-lg-6 flex-row justify-content-between d-inline-flex align-items-end bg-light">
+                    <p class="mb-0 py-1 text-secondary">Balance</p>
+                  </div>
+                  <div class="border flex-row d-inline-flex align-items-end col-lg-5 justify-content-end bg-light">
+                    <p class="mb-0 py-1 text-secondary">1000.94 credit</p>
+                  </div>
+                </div>
+                <div class="row flex-row justify-content-center">
+                  <div class="col-lg-11 flex-row justify-content-between bg-secondary d-inline-flex align-items-end"><a class="btn btn-success py-0 my-1" href="#" style="	width: 260px;" >PLACE BET</a>
+                    <a class="btn btn-danger py-0 my-1 text-white" style="	width: 160px;" onclick="closeForm()">CANCEL</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    <script>
+      function openForm() {
+          document.getElementById("myForm").style.display = "block";
+      }
+
+      function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+      }
+    </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous" style=""></script>
