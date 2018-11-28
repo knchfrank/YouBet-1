@@ -21,7 +21,7 @@ $name = $firstname.$lastname;
 $isUsed = 0 ;
 $message1 = "Confirm Password Not Match";
 $message2 = "Username is already exist";
-$message3 = "Complete Register, Wellcome to YouBet";
+$message3 = "Complete Register, Welcome to YouBet";
 
 if(strcmp($password,$passwordConfirm) != 0) { 		// check same password 
 	echo "<script> alert('$message1');window.location = '../register.html';</script>";

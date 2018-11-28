@@ -1,3 +1,21 @@
+<?php
+session_start();
+error_reporting(0);
+require('php/getConnection.php');
+$conn = getConnection();
+if ($conn->connect_error) {
+   die("Connection failed: " . $conn->connect_error);
+}
+    $UserName = $_SESSION['Username'];
+    $query = "SELECT * FROM User WHERE UserID = '$UserName'";
+    $result = $conn->query($query);
+    $rs = $result->fetch_array(MYSQLI_ASSOC);
+    if(isset($rs))
+    {
+      $Credit = $rs['Credit'];
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -24,9 +42,9 @@
           <li class="nav-item"> <a class="nav-link" href="account.html" contenteditable="true"><i class="fa fa-bell"></i>&nbsp;Announcements</a> </li>
         </ul>
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"> <a class="nav-link" href="#">Hi, post6996</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#">Hello, <?php echo $UserName;?></a> </li>
           <li class="nav-item border" style=""> <a class="nav-link" href="#">$</a> </li>
-          <li class="nav-item" style=""> <a class="nav-link border" href="#">1.6 M (TB)</a> </li>
+          <li class="nav-item" style=""> <a class="nav-link border" href="#"><?php echo $Credit;?> Credit</a> </li>
         </ul> <a class="btn navbar-btn ml-md-2 text-light btn-primary"><i class="fa fa-envelope"></i>&nbsp;Mail</a><a class="btn navbar-btn ml-md-2 text-light btn-danger"><i class="fa fa-sign-out"></i>&nbsp;sign out</a>
       </div>
     </div>
