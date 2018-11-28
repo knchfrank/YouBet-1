@@ -42,9 +42,9 @@ if ($conn->connect_error) {
           <li class="nav-item"> <a class="nav-link" href="account.html" contenteditable="true"><i class="fa fa-bell"></i>&nbsp;Announcements</a> </li>
         </ul>
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"> <a class="nav-link" href="#">Hi, <?php echo $UserName;?></a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#">Hello, <?php echo $UserName;?></a> </li>
           <li class="nav-item border" style=""> <a class="nav-link" href="#">$</a> </li>
-          <li class="nav-item" style=""> <a class="nav-link border" href="#"><?php echo $Credit;?> THB</a> </li>
+          <li class="nav-item" style=""> <a class="nav-link border" href="#"><?php echo $Credit;?> Credit</a> </li>
         </ul> <a class="btn navbar-btn ml-md-2 text-light btn-primary"><i class="fa fa-envelope"></i>&nbsp;Mail</a><a class="btn navbar-btn ml-md-2 text-light btn-danger"><i class="fa fa-sign-out"></i>&nbsp;sign out</a>
       </div>
     </div>

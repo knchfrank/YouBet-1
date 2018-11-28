@@ -1,6 +1,25 @@
+<?php
+session_start();
+error_reporting(0);
+require('php/getConnection.php');
+$conn = getConnection();
+if ($conn->connect_error) {
+   die("Connection failed: " . $conn->connect_error);
+}
+    $UserName = $_SESSION['Username'];
+    $query = "SELECT * FROM User WHERE UserID = '$UserName'";
+    $result = $conn->query($query);
+    $rs = $result->fetch_array(MYSQLI_ASSOC);
+    if(isset($rs))
+    {
+      $Credit = $rs['Credit'];
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
+  <Title>YouBet</Title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
@@ -9,7 +28,7 @@
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container"> <a class="navbar-brand" href="#">
+    <div class="container"> <a class="navbar-brand" href="main.php">
         <i class="fa d-inline fa-lg fa-circle-o"></i>
         <b> Youbet</b>
       </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar11">
@@ -18,15 +37,16 @@
       <div class="collapse navbar-collapse" id="navbar11">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item"> <a class="nav-link" href="#"><i class="fa fa-puzzle-piece"></i>&nbsp;My Bets</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="account.html"><i class="fa fa-credit-card-alt"></i>&nbsp;Credit</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="account.html"><i class="fa fa-user fa-fw"></i>Account</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="account.html" contenteditable="true"><i class="fa fa-bell"></i>&nbsp;Announcements</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="creditmanagement.php"><i class="fa fa-credit-card-alt"></i>&nbsp;Credit</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="account.php"><i class="fa fa-user fa-fw"></i>Account</a> </li>
+          <li class="nav-item"> <a class="nav-link" ><i class="fa fa-star-o"></i>&nbsp;Promotions</a> </li>
+          <li class="nav-item"> <a class="nav-link" ><i class="fa fa-envelope-o	"></i>&nbsp;News</a> </li>
         </ul>
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item"> <a class="nav-link" href="#">Hi, post6996</a> </li>
-          <li class="nav-item border" style=""> <a class="nav-link" href="#">$</a> </li>
-          <li class="nav-item" style=""> <a class="nav-link border" href="#">1.6 M (TB)</a> </li>
-        </ul> <a class="btn navbar-btn ml-md-2 text-light btn-primary"><i class="fa fa-envelope"></i>&nbsp;Mail</a><a class="btn navbar-btn ml-md-2 text-light btn-danger"><i class="fa fa-sign-out"></i>&nbsp;sign out</a>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"> <a class="nav-link">Your Balance:</a> </li>
+            <li class="nav-item"> <a class="nav-link" style="color:lightgreen"> <?php echo $Credit?> Credits</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="http://localhost/YouBet/account.php\">Hello, <?php echo $UserName?> </a> </li>
+            </ul> <a class="btn navbar-btn ml-md-2 text-light btn-danger" href="http://localhost/YouBet/php/Userlogin.php"><i class="fa fa-sign-out"></i>&nbsp;sign out</a>"; 
       </div>
     </div>
   </nav>
@@ -62,16 +82,14 @@
             <div class="tab-content mt-2">
               <div class="tab-pane fade" id="tabone" role="tabpanel">
                 <h1>Top-up</h1>
-                <h3 class="">Available Balance :&nbsp;<span class="badge badge-success">1500.98 Credit</span></h3>
+                <h3 class="">Available Balance :&nbsp;<span class="badge badge-success"><?php echo $Credit ." Credit"?></span></h3>
                 
-                <form class="text-left">
-                  <div class="form-group"> <label for="form17">User Name</label> <input type="text" class="form-control" name="username" placeholder="username" style=""> </div>
-                  <div class="form-group"> <label for="form17">Password</label> <input type="password" class="form-control" name="password" placeholder="*************" style=""> </div>
-                  <div class="form-group"> <label for="form17">CCV</label> <input type="password" class="form-control" name="ccv" placeholder="***" style=""> </div>
-                </form>
+                <form action = "totup.php" method="get">
+                  <div class="form-group"> <label for="form17">Username</label> <input type="text" class="form-control" name="username" value=""> </div>
+                  
+                  <div class="form-group"> <label for="form17">CCV</label> <input type="password" class="form-control" name="ccv"> </div>
                 <div class="row">
                   <div class="text-center col-md-12">
-                    <h1>Top-up</h1>
                   </div>
                 </div>
                 <div class="row">
@@ -92,11 +110,9 @@
                           <li>Safe</li>
                           <li>For starter</li>
                         </ul> 
-                        <form action = "totup.php" method="get">
-                            <button type="submit" name="cred" value=100 class="btn btn-primary mt-3">
+                            <button type="submit" name="cred" value= 100  class="btn btn-primary mt-3">
                               Confirm
                             </button>
-                        </form>
                       </div>
                     </div>
                   </div>
@@ -117,11 +133,10 @@
                           <li>Not too high</li>
                           <li>Interesting</li>
                         </ul>
-                        <form action = "totup.php" method="get">
                           <button type="submit" name="cred" value=500 class="btn btn-primary mt-3">
                             Confirm
                           </button>
-                        </form>
+                        <!-- </form> -->
                       </div>
                     </div>
                   </div>
@@ -140,12 +155,14 @@
                         <ul class="pl-3">
                           <li>Depends on you</li>
                           <li>Your business</li>
-                          <li>Make sure</li>
+                          <li>Think carefully</li>
                         </ul>
-                        <form class="form-inline" action="totup.php" method="get">
+                        <!-- <form class="form-inline"> -->
+                        <!-- <form action = "totup.php" method="get" form class="text-left"> -->
                           <div class="form-group">
-                            <input type="number" class="form-control w-75" name="cred" placeholder="0.00 THB"> </div>
-                          <button type="submit" class="btn btn-primary mt-2">Confirm</button>
+                            <input type="number" class="form-control w-75" name="cred" value = ""> 
+                          </div>
+                          <button type="submit" value="cred" class="btn btn-primary mt-2">Confirm</button>
                         </form>
                       </div>
                     </div>
@@ -156,7 +173,7 @@
               
               <div class="tab-pane fade active show" id="tabtwo" role="tabpanel">
                 <h1>Withdraw</h1>
-                <h3 class="">Available Balance :&nbsp;<span class="badge badge-success">1500.98 Credit</span></h3>
+                <h3 class="">Available Balance :&nbsp;<span class="badge badge-success"><?php echo $Credit?></span></h3>
                 <form class="text-left">
                   <div class="form-group"> <label for="form17">User Name</label> <input type="text" class="form-control" id="form17" placeholder="Sarin Post" style=""> </div>
                   <div class="form-group"> <label for="form17">Password</label> <input type="password" class="form-control" id="form17" placeholder="*************" style=""> </div>
