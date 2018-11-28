@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<Title>YouBet</Title>
 </head>
 <body>
 <?php
+session_start();
 require('getConnection.php');
 $con = getConnection();
 // Check connection
@@ -14,7 +16,9 @@ if ($con->connect_error) {
 $firstname = $con->real_escape_string($_POST['firstname']);
 $lastname = $con->real_escape_string($_POST['lastname']);
 $email = $con->real_escape_string($_POST['email']);
+$_SESSION['Username'] = mysqli_real_escape_string($con, $_POST['username']);
 $username = $con->real_escape_string($_POST['username']);
+$_SESSION['password'] = mysqli_real_escape_string($con, $_POST['password']);
 $password = $con->real_escape_string($_POST['password']);
 $passwordConfirm = $con->real_escape_string($_POST['passwordConfirm']);
 $name = $firstname.$lastname;
@@ -49,12 +53,16 @@ if($isUsed)
 		INSERT INTO User (UserID, Name, Password, Email)
 		VALUES ('$username','$name','$password','$email')
 		";  
-	
+	if (isset($_POST['username']) && isset($_POST['password']))
+	{
+		$_SESSION["isLogged"] = 1;
+	}
+		
 	if ($con->query($sql) == false) {
 		die("Error: " . $sql . "<br>" . $conn->error);
 	}
 
-	echo "<script> alert('$message3');window.location = '../mainlogin.html';</script>";
+	  echo "<script> alert('$message3');window.location = '../main.php';</script>";
 }
 
 $con->close();
