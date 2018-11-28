@@ -47,14 +47,8 @@ if ($conn->connect_error) {
             <ul class=\"navbar-nav ml-auto\">
             <li class=\"nav-item\"> <a class=\"nav-link\">Your Balance:</a> </li>
             <li class=\"nav-item\"> <a class=\"nav-link\" style=\"color:lightgreen\"> $Credit </a> </li>
-<<<<<<< HEAD
             <li class=\"nav-item\"> <a class=\"nav-link\" href=\"http://localhost/YouBet/account.php\">Hello, $UserName </a> </li>
             </ul> <a class=\"btn navbar-btn ml-md-2 text-light btn-danger\" href=\"http://localhost/YouBet/php/Userlogin.php\"><i class=\"fa fa-sign-out\"></i>&nbsp;sign out</a>";
-=======
-            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"http://localhost/YouBet/account.html\">Hello, $UserName </a> </li>
-            </ul> 
-            <a class=\"btn navbar-btn ml-md-2 text-light btn-danger\" href=\"http://localhost/YouBet/php/Userlogin.php\"><i class=\"fa fa-sign-out\"></i>&nbsp;sign out</a>";
->>>>>>> 09923a2616499b1f69a85a13ba8f063341c95783
           } else {
             echo "<ul class=\"navbar-nav ml-auto; margin-left:0px;\">
             <li class=\"nav-item\"> <a class=\"nav-link\" href=\"login.php\"><i class=\"fa fa-puzzle-piece\"></i>&nbsp;My Bets</a> </li>
@@ -132,7 +126,7 @@ if ($conn->connect_error) {
             while($row = $result->fetch_assoc()) { 
         ?>    
                             <tr style="" class="table-light">     
-                            <td class="text-right"><a class="navbar-brand" href="http://localhost/YouBet/main.php"><i class="fa fa-external-link-square"></i></a>
+                            <td class="text-right"><a class="navbar-brand" href="http://localhost/YouBet/matchinformation.php"><i class="fa fa-external-link-square"></i></a>
                             <td class="text-center"><?php echo $row["Begindate"] ?></td></a>
                             <td class="text-center"><?php echo $row["Handicaphome"] ." : ". $row["Handicapaway"]?></td>
                             <td class="text-center"><a href="http://localhost/YouBet/teaminfo.html"><?php echo $row["Teamhome"]?></a></td>

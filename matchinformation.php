@@ -1,3 +1,22 @@
+<?php
+session_start();
+error_reporting(0);
+require('php/getConnection.php');
+$conn = getConnection();
+if ($conn->connect_error) {
+   die("Connection failed: " . $conn->connect_error);
+}
+    $UserName = $_SESSION['Username'];
+    $query = "SELECT * FROM User WHERE UserID = '$UserName'";
+    $result = $conn->query($query);
+    $rs = $result->fetch_array(MYSQLI_ASSOC);
+    if(isset($rs))
+    {
+      $Credit = $rs['Credit'];
+    }
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -15,7 +34,7 @@
 
 <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-  <script>
+  <!-- <script>
     load();
     function load() {
       $.ajax({
@@ -42,7 +61,7 @@
             document.getElementById("Goalscoredhome").innerHTML = response.Goalscoredhome;
             document.getElementById("Goalscoredaway").innerHTML = response.Goalscoredaway;
         }
-  </script>
+  </script> -->
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container"> <a class="navbar-brand" href="mainlogin.html">
@@ -62,7 +81,7 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item"> <a class="nav-link">Your Balance:</a> </li>
           <li class="nav-item"> <a class="nav-link" style="color:lightgreen">1500.98 Credit</a> </li>
-          <li class="nav-item"> <a class="nav-link">Hello,sarinpost </a> </li>
+          <li class="nav-item"> <a class="nav-link">Hello, <?php echo $UserName;?> </a> </li>
         </ul> <a class="btn navbar-btn ml-md-2 text-light btn-danger" href="main.html"><i class="fa fa-sign-out"></i>&nbsp;sign out</a>
       </div>
     </div>
