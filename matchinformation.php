@@ -3,7 +3,7 @@ session_start();
 error_reporting(0);
 require('php/getConnection.php');
 $conn = getConnection();
-$matchID = $_GET["matchID"];
+$matchID = $conn->real_escape_string($_GET["matchID"]);
 if ($conn->connect_error) {
    die("Connection failed: " . $conn->connect_error);
 }
@@ -15,8 +15,11 @@ if ($conn->connect_error) {
     {
       $Credit = $rs['Credit'];
     }
+    $query = "SELECT * FROM Matchinfo WHERE MatchID = '$matchID'";
+    $result = $conn->query($query);
+    $row = $result->fetch_assoc();
+    // echo $row['Type'];
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -107,20 +110,20 @@ if ($conn->connect_error) {
       <div class="row">
         <div class="mx-auto col-md-8">
           <h1 class="mb-3">Exhibition</h1>
-          <p class="lead"><div id="begindate"></div><br><div id="type"></div><br></p>
+          <p class="lead"><div><?php echo $row['Begindate']?></div><br><?php echo $row['Type']?></div><br></p>
         </div>
       </div>
       <div class="row justify-content-center align-items-center">
         <div class="col-md-2">
           <img class="img-fluid d-block mx-auto" src="Pics/team/celtic.png" style="	width: 70px;">
-          <h4 class=""><div class="teamhome"></div></h4>
+          <h4 class=""><div><?php echo $row['Teamhome']?></div></h4>
         </div>
         <div class="col-md-4">
-          <h3 class=""><div id="Goalscoredhome" style="display: inline"></div> - <div id="Goalscoredaway" style="display: inline"></div></h3>
+          <h3 class=""><div style="display: inline"><?php echo $row['Goalscoredhome']?></div> - <div style="display: inline"><?php echo $row['Goalscoredaway']?></div></h3>
         </div>
         <div class="col-md-2">
           <img class="img-fluid d-block mx-auto" src="Pics/team/st. johnstone.png" style="	width: 70px;">
-          <h4 class=""><div class="teamaway"></div></h4>
+          <h4 class=""><div><?php echo $row['Teamaway']?></div></h4>
         </div>
       </div>
     </div>
@@ -140,27 +143,44 @@ if ($conn->connect_error) {
                   <thead>
                     <tr>
                       <th scope="col" class="table-dark">#</th>
-                      <th scope="col" class="w-50 table-dark"><div class="teamhome"></div></th>
-                      <th scope="col" class="w-50 text-right table-dark"><div class="teamaway"></div></th>
+                      <th scope="col" class="w-50 table-dark"><div><?php echo $row['Teamhome']?></div></th>
+                      <th scope="col" class="w-50 text-right table-dark"><div><?php echo $row['Teamaway']?></div></th>
                       <th scope="col" class="w-50 text-right table-dark">#</th>
                     </tr>
                   </thead>
-                  <tbody>
 
-                    <tr>
-                      <td>1</td>
-                      <td>C. Gordo</td>
-                      <td class="text-right">Z. Clark</td>
-                      <td class="text - right">1</td>
-                    </tr>
-                    <tr>
-                      <td>8</td>
-                      <td>S. Brown</td>
-                      <td class="text-right">S. Tancer</td>
-                      <td class="text - right">3</td>
-                    </tr>
-                    
+                  <tbody>
+                    <?php
+                      $query2 = "SELECT PlayerName, Number, Team
+                                  FROM Player
+                                  WHERE Team IN (
+                                    SELECT Teamhome
+                                    FROM Matchinfo
+                                    WHERE MatchID = '$matchID'
+                                )";
+                      $query3 = "SELECT PlayerName, Number, Team
+                                  FROM Player
+                                  WHERE Team IN (
+                                  SELECT Teamaway
+                                  FROM Matchinfo
+                                  WHERE MatchID = '$matchID'
+                                )";    
+                      $result2 = $conn->query($query2);
+                      $result3 = $conn->query($query3);
+                      $i = 0;
+                      while($i++ < 11) {
+                          $row2 = $result2->fetch_assoc();
+                          $row3 = $result3->fetch_assoc();
+                          echo "<tr>";
+                          echo "<td>".$row2['Number']."</td>";
+                          echo "<td>".$row2['PlayerName']."</td>";
+                          echo "<td class=\"text-right\">".$row3['PlayerName']."</td>";
+                          echo "<td class=\"text - right\">".$row3['Number']."</td>";
+                          echo "</tr>";
+                      }
+                    ?>
                   </tbody>
+
                 </table>
               </div>
             </div>
@@ -172,49 +192,49 @@ if ($conn->connect_error) {
               <thead></thead>
               <tbody>
                 <tr>
-                  <td class="w-25"><span class="badge badge-primary badge-pill">44.3</span></td>
+                  <td class="w-25"><span class="badge badge-primary badge-pill"><?php echo $row['Possessionhome']?></span></td>
                   <td class="w-50 text-center" style="">Possesion %</td>
-                  <td class="w-25 text-right"><span class="badge badge-pill badge-warning">55.7</span></td>
+                  <td class="w-25 text-right"><span class="badge badge-pill badge-warning"><?php echo $row['Possessionaway']?></span></td>
                 </tr>
                 <tr>
-                  <td class="w-25"><span class="badge badge-primary badge-pill">10</span></td>
+                  <td class="w-25"><span class="badge badge-primary badge-pill"><?php echo $row['Goalconcededhome']?></span></td>
                   <td class="w-50 text-center" style="">Goal conceded</td>
-                  <td class="w-25 text-right"><span class="badge badge-pill badge-warning">10</span></td>
+                  <td class="w-25 text-right"><span class="badge badge-pill badge-warning"><?php echo $row['Goalconcededaway']?></span></td>
                 </tr>
                 <tr>
-                  <td class="w-25"><span class="badge badge-primary badge-pill">24</span></td>
+                  <td class="w-25"><span class="badge badge-primary badge-pill"><?php echo $row['Shotshome']?></span></td>
                   <td class="w-50 text-center" style="">Shot</td>
-                  <td class="w-25 text-right"><span class="badge badge-pill badge-warning">32</span></td>
+                  <td class="w-25 text-right"><span class="badge badge-pill badge-warning"><?php echo $row['Shotsaway']?></span></td>
                 </tr>
                 <tr>
-                  <td class="w-25"><span class="badge badge-primary badge-pill">365</span></td>
+                  <td class="w-25"><span class="badge badge-primary badge-pill"><?php echo $row['Passcompletehome']?></span></td>
                   <td class="w-50 text-center" style="">Pass completion</td>
-                  <td class="w-25 text-right"><span class="badge badge-pill badge-warning">736</span></td>
+                  <td class="w-25 text-right"><span class="badge badge-pill badge-warning"><?php echo $row['Passcompleteaway']?></span></td>
                 </tr>
                 <tr>
-                  <td class="w-25"><span class="badge badge-primary badge-pill">30</span></td>
+                  <td class="w-25"><span class="badge badge-primary badge-pill"><?php echo $row['Chancecreatehome']?></span></td>
                   <td class="w-50 text-center" style="">Chances Created</td>
-                  <td class="w-25 text-right"><span class="badge badge-pill badge-warning">40</span></td>
+                  <td class="w-25 text-right"><span class="badge badge-pill badge-warning"><?php echo $row['Chancecreateaway']?></span></td>
                 </tr>
                 <tr>
-                  <td class="w-25"><span class="badge badge-primary badge-pill">18</span></td>
+                  <td class="w-25"><span class="badge badge-primary badge-pill"><?php echo $row['Clearanceshome']?></span></td>
                   <td class="w-50 text-center" style="">Clearances</td>
-                  <td class="w-25 text-right"><span class="badge badge-pill badge-warning">15</span></td>
+                  <td class="w-25 text-right"><span class="badge badge-pill badge-warning"><?php echo $row['Clearancesaway']?></span></td>
                 </tr>
                 <tr>
-                  <td class="w-25"><span class="badge badge-primary badge-pill">3</span></td>
+                  <td class="w-25"><span class="badge badge-primary badge-pill"><?php echo $row['Cornershome']?></span></td>
                   <td class="w-50 text-center" style="">Corners</td>
-                  <td class="w-25 text-right"><span class="badge badge-pill badge-warning">4</span></td>
+                  <td class="w-25 text-right"><span class="badge badge-pill badge-warning"><?php echo $row['Cornersaway']?></span></td>
                 </tr>
                 <tr>
-                  <td class="w-25"><span class="badge badge-primary badge-pill">1</span></td>
+                  <td class="w-25"><span class="badge badge-primary badge-pill"><?php echo $row['Redcardshome']?></span></td>
                   <td class="w-50 text-center" style="">Red cards</td>
-                  <td class="w-25 text-right"><span class="badge badge-pill badge-warning">0</span></td>
+                  <td class="w-25 text-right"><span class="badge badge-pill badge-warning"><?php echo $row['Redcardsaway']?></span></td>
                 </tr>
                 <tr>
-                  <td class="w-25"><span class="badge badge-primary badge-pill">3</span></td>
+                  <td class="w-25"><span class="badge badge-primary badge-pill"><?php echo $row['Yellowcardshome']?></span></td>
                   <td class="w-50 text-center" style="">Yellow cards</td>
-                  <td class="w-25 text-right"><span class="badge badge-pill badge-warning">2</span></td>
+                  <td class="w-25 text-right"><span class="badge badge-pill badge-warning"><?php echo $row['Yellowcardsaway']?></span></td>
                 </tr>
               </tbody>
             </table>
@@ -223,6 +243,7 @@ if ($conn->connect_error) {
       </div>
     </div>
   </div>
+  <?php $conn->close(); ?>
   <div class="py-3 bg-dark">
     <div class="container">
       <div class="row">
