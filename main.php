@@ -40,7 +40,7 @@ if ($conn->connect_error) {
             echo "<ul class=\"navbar-nav ml-auto; margin-left:0px;\">
             <li class=\"nav-item\"> <a class=\"nav-link\" href=\"login.php\"><i class=\"fa fa-puzzle-piece\"></i>&nbsp;My Bets</a> </li>
             <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-credit-card-alt\"></i>&nbsp;Credit</a> </li>
-            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"account.html\"><i class=\"fa fa-user fa-fw\"></i>Account</a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"account.php\"><i class=\"fa fa-user fa-fw\"></i>Account</a> </li>
             <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-star-o\"></i>&nbsp;Promotions</a> </li>
             <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-envelope-o	\"></i>&nbsp;News</a> </li>
             </ul>
@@ -55,8 +55,8 @@ if ($conn->connect_error) {
             <li class=\"nav-item\"> <a class=\"nav-link\" href=\"login.php\"><i class=\"fa fa-puzzle-piece\"></i>&nbsp;My Bets</a> </li>
             <li class=\"nav-item\"> <a class=\"nav-link\" href=\"login.php\"><i class=\"fa fa-credit-card-alt\"></i>&nbsp;Credit</a> </li>
             <li class=\"nav-item\"> <a class=\"nav-link\" href=\"login.php\"><i class=\"fa fa-user fa-fw\"></i>Account</a> </li>
-            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-star-o\"></i>&nbsp;Promotions</a> </li>
-            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-envelope-o	\"></i>&nbsp;News</a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" ><i class=\"fa fa-star-o\"></i>&nbsp;Promotions</a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" ><i class=\"fa fa-envelope-o	\"></i>&nbsp;News</a> </li>
             </ul>
             <ul class=\"navbar-nav ml-auto\">
             <li class=\"nav-item\" > <a class=\"btn btn-primary\" href=\"login.php\">LOG IN</a> </li>
@@ -96,7 +96,7 @@ if ($conn->connect_error) {
   
 
 <?php
-        $sql = "SELECT Begindate, Handicaphome, Handicapaway, Teamhome, Oddshome,Oddsdraw,Oddsaway,Teamaway,Type
+        $sql = "SELECT MatchID, Begindate, Handicaphome, Handicapaway, Teamhome, Oddshome,Oddsdraw,Oddsaway,Teamaway,Type
                 FROM Matchinfo;";
         $result = $conn->query($sql);
 
@@ -131,7 +131,7 @@ if ($conn->connect_error) {
                             <td class="text-center"><?php echo $row["Begindate"] ?></td></a>
                             <td class="text-center"><?php echo $row["Handicaphome"] ." : ". $row["Handicapaway"]?></td>
                             <td class="text-center"><a href="teaminfo.html"><?php echo $row["Teamhome"]?></a></td>
-                            <td class="text-center"><a href="" class="btn rounded-0 btn-info text-light"><?php echo $row["Oddshome"] ?></a></td>
+                            <td class="text-center"><a href="#" class="btn rounded-0 btn-info text-light"><?php echo $row["Oddshome"] ?></a></td>
                             <td class="text-center"><a href="#" class="btn rounded-0 btn-info"><?php echo $row["Oddsdraw"] ?></a></td>
                             <td class="text-center"><a href="#" class="btn btn-info rounded-0"><?php echo $row["Oddsaway"] ?></a></td>
                             <td style="text-center"><a href="teaminfo.html"><?php echo $row["Teamaway"] ?></td>
