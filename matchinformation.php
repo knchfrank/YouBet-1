@@ -68,7 +68,7 @@ if ($conn->connect_error) {
   </script> -->
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container"> <a class="navbar-brand" href="mainlogin.html">
+    <div class="container"> <a class="navbar-brand" href="main.php">
         <i class="fa d-inline fa-lg fa-circle-o"></i>
         <b> Youbet</b>
       </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar11">
@@ -86,7 +86,7 @@ if ($conn->connect_error) {
           <li class="nav-item"> <a class="nav-link">Your Balance:</a> </li>
           <li class="nav-item"> <a class="nav-link" style="color:lightgreen"><?php echo $Credit;?></a> </li>
           <li class="nav-item"> <a class="nav-link">Hello, <?php echo $UserName;?> </a> </li>
-        </ul> <a class="btn navbar-btn ml-md-2 text-light btn-danger" href="main.html"><i class="fa fa-sign-out"></i>&nbsp;sign out</a>
+        </ul> <a class="btn navbar-btn ml-md-2 text-light btn-danger" href="main.php"><i class="fa fa-sign-out"></i>&nbsp;sign out</a>
       </div>
     </div>
   </nav>
@@ -248,7 +248,7 @@ if ($conn->connect_error) {
     <div class="container">
       <div class="row">
         <div class="col-lg-6 col-6 p-3">
-          <div class="container"> <a class="navbar-brand" href="mainlogin.html">
+          <div class="container"> <a class="navbar-brand" href="main.php">
               <h2 style="color:white"><i class="fa d-inline fa-lg fa-circle-o"></i><b> Youbet</b> </h2>
             </a></div>
           <ul class="list-unstyled">
