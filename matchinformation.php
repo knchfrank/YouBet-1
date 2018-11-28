@@ -3,6 +3,7 @@ session_start();
 error_reporting(0);
 require('php/getConnection.php');
 $conn = getConnection();
+$matchID = $_GET["matchID"];
 if ($conn->connect_error) {
    die("Connection failed: " . $conn->connect_error);
 }
@@ -80,7 +81,7 @@ if ($conn->connect_error) {
         </ul>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item"> <a class="nav-link">Your Balance:</a> </li>
-          <li class="nav-item"> <a class="nav-link" style="color:lightgreen">1500.98 Credit</a> </li>
+          <li class="nav-item"> <a class="nav-link" style="color:lightgreen"><?php echo $Credit;?></a> </li>
           <li class="nav-item"> <a class="nav-link">Hello, <?php echo $UserName;?> </a> </li>
         </ul> <a class="btn navbar-btn ml-md-2 text-light btn-danger" href="main.html"><i class="fa fa-sign-out"></i>&nbsp;sign out</a>
       </div>
