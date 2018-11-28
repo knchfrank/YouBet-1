@@ -1,5 +1,7 @@
 <?php
 session_start();
+error_reporting(0);
+ini_set('display_errors', 0);
 require('php/getConnection.php');
 $conn = getConnection();
 if ($conn->connect_error) {
