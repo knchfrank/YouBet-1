@@ -38,7 +38,7 @@
           <form action="http://localhost/Youbet/php/Userlogin.php" method="post">
             <div class="form-group"> <input type="text" class="form-control" placeholder="User name" name="username"> </div>
             <div class="form-group mb-3"> <input type="password" class="form-control" placeholder="Password" name="password"> <small class="form-text text-muted text-right">
-                <a href="#" class=""> Remember password? </a>
+                <a href="#" class=""> Forgotten account? </a>
               </small> </div> <button type="submit" class="btn btn-primary">Submit</button>
           </form>
         </div>
