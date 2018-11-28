@@ -18,7 +18,7 @@ if ($conn->connect_error) {
 
 <!DOCTYPE html>
 <html>
-
+<Title>YouBet</Title>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,23 +35,35 @@ if ($conn->connect_error) {
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbar11">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item"> <a class="nav-link" href="#"><i class="fa fa-puzzle-piece"></i>&nbsp;My Bets</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#"><i class="fa fa-credit-card-alt"></i>&nbsp;Credit</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#"><i class="fa fa-user fa-fw"></i>Account</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#"><i class="fa fa-star-o"></i>&nbsp;Promotions</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#"><i class="fa fa-envelope-o	"></i>&nbsp;News</a> </li>
-        </ul>
-
         <?php
           if($_SESSION["isLogged"] == 1) {
-            echo "<ul class=\"navbar-nav ml-auto\">
+            echo "<ul class=\"navbar-nav ml-auto; margin-left:0px;\">
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"login.php\"><i class=\"fa fa-puzzle-piece\"></i>&nbsp;My Bets</a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-credit-card-alt\"></i>&nbsp;Credit</a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-user fa-fw\"></i>Account</a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-star-o\"></i>&nbsp;Promotions</a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-envelope-o	\"></i>&nbsp;News</a> </li>
+            </ul>
+            <ul class=\"navbar-nav ml-auto\">
             <li class=\"nav-item\"> <a class=\"nav-link\">Your Balance:</a> </li>
             <li class=\"nav-item\"> <a class=\"nav-link\" style=\"color:lightgreen\"> $Credit </a> </li>
+<<<<<<< HEAD
             <li class=\"nav-item\"> <a class=\"nav-link\" href=\"http://localhost/YouBet/account.php\">Hello, $UserName </a> </li>
             </ul> <a class=\"btn navbar-btn ml-md-2 text-light btn-danger\" href=\"http://localhost/YouBet/php/Userlogin.php\"><i class=\"fa fa-sign-out\"></i>&nbsp;sign out</a>";
+=======
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"http://localhost/YouBet/account.html\">Hello, $UserName </a> </li>
+            </ul> 
+            <a class=\"btn navbar-btn ml-md-2 text-light btn-danger\" href=\"http://localhost/YouBet/php/Userlogin.php\"><i class=\"fa fa-sign-out\"></i>&nbsp;sign out</a>";
+>>>>>>> 09923a2616499b1f69a85a13ba8f063341c95783
           } else {
-            echo "<ul class=\"navbar-nav ml-auto\">
+            echo "<ul class=\"navbar-nav ml-auto; margin-left:0px;\">
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"login.php\"><i class=\"fa fa-puzzle-piece\"></i>&nbsp;My Bets</a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"login.php\"><i class=\"fa fa-credit-card-alt\"></i>&nbsp;Credit</a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"login.php\"><i class=\"fa fa-user fa-fw\"></i>Account</a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-star-o\"></i>&nbsp;Promotions</a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-envelope-o	\"></i>&nbsp;News</a> </li>
+            </ul>
+            <ul class=\"navbar-nav ml-auto\">
             <li class=\"nav-item\" > <a class=\"btn btn-primary\" href=\"login.php\">LOG IN</a> </li>
             </ul> <a class=\"btn navbar-btn ml-md-2 btn-orange text-light \" href=\"register.html\"><i class=\"fa fa-registered\" style=\"\"></i>&nbsp;SIGN UP</a>";
           }
@@ -69,7 +81,6 @@ if ($conn->connect_error) {
           <p class="mb-3">Of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.</p>
           <form class="form-inline d-flex justify-content-end">
             <div class="input-group">
-              <div class="input-group-append" > <a class="btn btn-primary" href="register.html" class="button">Get an accont here</a> </div>
             </div>
           </form>
         </div>
@@ -87,98 +98,7 @@ if ($conn->connect_error) {
       </div>
     </div>
   </div>
-  <!-- <div class="py-0">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12" style="">
-          <table class="table" style="">
-            <thead>
-              <tr class="border border-dark text-center">
-                <th class="">Date (GMT +7)</th>
-                <th class="" style="	width: 55px;">Handicap</th>
-                <th class="text-right">Team Home</th>
-                <th class="text-center"></th>
-                <th class="text-center">DRAW</th>
-                <th class="text-center"></th>
-                <th class="text-left">Team Away</th>
-                <th class="text-center">League</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="" class="table-light">
-                <td class="text-center"><a class="btn btn-danger" href="#"><i class="	fa fa-dot-circle-o"></i>&nbsp;LIVE</a><br></td>
-                <td class="text-center ">1:0</td>
-                <td class="">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <li class="d-flex align-items-center justify-content-end" style="">Celtic<img class="img-fluid d-block pi-draggable mx-2" src="Pics/team/celtic.png" style="	height: 40px;"></li>
-                    </div>
-                  </div>
-                </td>
-                <td class="text-center" style=""><a href="#" class="btn rounded-0 btn-info text-light">4.16</a></td>
-                <td class="text-center"><a href="#" class="btn rounded-0 btn-info">0.88</a></td>
-                <td class="text-center"><a href="#" class="btn btn-info rounded-0">3.41</a></td>
-                <td style="">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <li class="d-flex align-items-center justify-content-start" style=""><img class="img-fluid d-block pi-draggable mx-2" src="Pics/team/st. johnstone.png" style="	height: 40px;">St. Johnstone</li>
-                    </div>
-                  </div>
-                </td>
-                <td class="text-center" style="">Scottish Premier League</td>
-              </tr>
-              <tr style="" class="table-light">
-                <td class="text-center">21:06<br>OCT 18</td>
-                <td class="text-center ">1:0</td>
-                <td>
-                  <div class="row">
-                    <div class="col-md-12">
-                      <li class="d-flex align-items-center justify-content-end" style="">Redbull<img class="img-fluid d-block pi-draggable mx-2" src="Pics/team/Redbull.png" style="	height: 40px;"></li>
-                    </div>
-                  </div>
-                </td>
-                <td class="text-center" style=""><a href="#" class="btn rounded-0 btn-info text-light">4.16</a></td>
-                <td class="text-center"><a href="#" class="btn rounded-0 btn-info">0.88</a></td>
-                <td class="text-center"><a href="#" class="btn btn-info rounded-0">3.41</a></td>
-                <td>
-                  <div class="row">
-                    <div class="col-md-12">
-                      <li class="d-flex align-items-center justify-content-start" style=""><img class="img-fluid d-block pi-draggable mx-2" src="Pics/team/Aberdeen.png" style="	height: 40px;">Aberdeen</li>
-                    </div>
-                  </div>
-                </td>
-                <td class="text-center">Scottish Premier League</td>
-              </tr>
-              <tr style="">
-                <td class="text-center">23:00&nbsp;<br>OCT 18</td>
-                <td class="text-center">1:0</td>
-                <td>
-                  <div class="row">
-                    <div class="col-md-12">
-                      <li class="d-flex align-items-center justify-content-end" style="">Ajax<img class="img-fluid d-block pi-draggable mx-2" src="Pics/team/Ajax.png" style="	height: 40px;"></li>
-                    </div>
-                  </div>
-                </td>
-                <td class="text-center"><a href="#" class="btn btn-info rounded-0">5.88</a></td>
-                <td class="text-center"><a href="#" class="btn btn-info rounded-0">0.71</a></td>
-                <td class="text-center"><a href="#" class="btn btn-info rounded-0">3.59</a></td>
-                <td style="">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <li class="d-flex align-items-center justify-content-start" style=""><img class="img-fluid d-block pi-draggable mx-2" src="Pics/team/Hibernian.png" style="	height: 40px;">Hibernian</li>
-                    </div>
-                  </div>
-                </td>
-                <td class="text-center">EUROPA League</td>
-              </tr>
-              <tr></tr>
-              <tr></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div> -->
+  
 
 <?php
         $sql = "SELECT Begindate, Handicaphome, Handicapaway, Teamhome, Oddshome,Oddsdraw,Oddsaway,Teamaway,Type
