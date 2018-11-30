@@ -1,10 +1,7 @@
 <?php
 session_start();
 error_reporting(0);
-<<<<<<< HEAD
 ini_set('display_errors', 0);
-=======
->>>>>>> 2c4425de8aaf23c5edb6c5f324a08fb033491142
 require('php/getConnection.php');
 $conn = getConnection();
 if ($conn->connect_error) {
