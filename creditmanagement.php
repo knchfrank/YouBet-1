@@ -45,17 +45,17 @@ if ($conn->connect_error) {
           <ul class="navbar-nav ml-auto">
             <li class="nav-item"> <a class="nav-link">Your Balance:</a> </li>
             <li class="nav-item"> <a class="nav-link" style="color:lightgreen"> <?php echo $Credit?> Credits</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="http://localhost/YouBet/account.php\">Hello, <?php echo $UserName?> </a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#">Hello, <?php echo $UserName?> </a> </li>
             </ul> <a class="btn navbar-btn ml-md-2 text-light btn-danger" href="http://localhost/YouBet/php/Userlogin.php"><i class="fa fa-sign-out"></i>&nbsp;sign out</a>"; 
       </div>
     </div>
   </nav>
-  <div class="py-5 text-center text-md-right text-light" style="background-image: url(Pics/5485161-football-hd-wallpapers.jpg);	background-position: right bottom;	background-size: cover;	background-repeat: repeat;	background-attachment: fixed;">
+  <div class="py-5 text-center text-md-right text-light" style="background-image: url(https://fsmedia.imgix.net/43/e9/9e/ac/0c64/4d0e/a2bc/dda1d61a31db/on-fire.jpeg?rect=0%2C56%2C1280%2C640&dpr=2&auto=format%2Ccompress&w=650);	background-position: right bottom;	background-size: cover;	background-repeat: repeat;	background-attachment: fixed;">
     <div class="container">
       <div class="row">
         <div class="p-5 mx-auto mx-md-0 ml-md-auto col-10 col-md-9">
-          <h3 class="display-3">Youbet</h3>
-          <p class="mb-3 lead">Hello, welcome to Youbet.&nbsp;<br>We're online football betting website.<br>What are you waiting for? Let's role!!<br></p>
+          <h3 class="display-3" style = "color:green">Youbet</h3>
+          <p class="mb-3 lead" style = "color:red">Hello, "Welcome to Youbet.&nbsp;<br>We're online football betting website.<br>What are you waiting for? Let's role!!<br></p>
         </div>
       </div>
     </div>
@@ -64,13 +64,18 @@ if ($conn->connect_error) {
     <div class="container">
       <div class="row">
         <div class="col-md-3" style="">
-          <div class="card"> <img class="card-img-top" src="Pics/PostCapture.PNG" alt="Card image cap">
+          <div class="card"style="margin-top:25px;"> 
+            <!-- <img class="card-img-top" src="Pics/PostCapture.PNG" alt="Card image cap"> -->
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">View profile picture</li>
-              <li class="list-group-item">Edit profile picture</li>
-              <li class="list-group-item">Option</li>
+              <li class="list-group-item" ><a href = "#">My Profile </a></li>
+              <li class="list-group-item" ><a href = "#">Edit Profile </a></li>
+              <li class="list-group-item" ><a href = "#" data-toggle="tab" data-target="#tabtwo">Withdraw</a></li>
+              <li class="list-group-item" ><a href = "#" data-toggle="tab" data-target="#tabone">Top-up</a></li>
+              <li class="list-group-item" ><a href = "#">Credit Statement </a></li>
+              <li class="list-group-item" ><a href = "#">Betting History </a></li>
+              <li class="list-group-item" ><a href = "#">Account Binding </a></li>
             </ul>
-            <div class="card-body"> <a href="#" class="card-link text-danger">Delete</a> </div>
+            <!-- <div class="card-body"> <a href="#" class="card-link text-danger">Delete</a> </div> -->
           </div>
         </div>
         <div class="py-3 col-md-9" style="">
@@ -175,7 +180,7 @@ if ($conn->connect_error) {
               
               <div class="tab-pane fade active show" id="tabtwo" role="tabpanel">
                 <h1>Withdraw</h1>
-                <h3 class="">Available Balance :&nbsp;<span class="badge badge-success"><?php echo $Credit?></span></h3>
+                <h3 class="">Available Balance :&nbsp;<span class="badge badge-success"><?php echo $Credit." Credit"?></span></h3>
                 <form class="text-left">
                   <!-- <div class="form-group"> <label for="form17">User Name</label> <input type="text" class="form-control" id="form17" placeholder="Sarin Post" style=""> </div>
                   <div class="form-group"> <label for="form17">Password</label> <input type="password" class="form-control" id="form17" placeholder="*************" style=""> </div> -->
@@ -269,6 +274,44 @@ if ($conn->connect_error) {
       </div>
     </div>
   </div>
+  <div class="py-3 bg-dark">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-6 p-3">
+            <div class="container"> <a class="navbar-brand" href="main.php">
+                <h2 style="color:white"><i class="fa d-inline fa-lg fa-circle-o"></i><b> Youbet</b> </h2>
+              </a></div>
+            <ul class="list-unstyled">
+              <li> <b style="color:white">The more money you lose the more we get.</b> </li>
+              <li> <b style="color:white">Hope you enjoy our entertainment that we had been made</b> </li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 p-3">
+            <h5> <b style="color:white">Follow us</b> </h5>
+            <div class="row">
+              <div class="col-md-12 d-flex align-items-center justify-content-between my-2" > <a href="https://www.facebook.com/sarinsa" >
+                  <i class="d-block fa fa-facebook-official text-muted fa-lg mr-2" ></i>
+                </a> <a href="https://www.instagram.com/post678910/?hl=en">
+                  <i class="d-block fa fa-instagram text-muted fa-lg mx-2"></i>
+                </a> <a href="#">
+                  <i class="d-block fa fa-google-plus-official text-muted fa-lg mx-2"></i>
+                </a> <a href="#">
+                  <i class="d-block fa fa-pinterest-p text-muted fa-lg mx-2"></i>
+                </a> <a href="#">
+                  <i class="d-block fa fa-reddit text-muted fa-lg mx-2"></i>
+                </a> <a href="#">
+                  <i class="d-block fa fa-twitter text-muted fa-lg ml-2"></i>
+                </a> </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p class="mb-0 mt-2">© 2018 Youbet. All rights reserved</p>
+          </div>
+        </div>
+      </div>
+    </div>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous" style=""></script>

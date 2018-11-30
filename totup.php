@@ -1,3 +1,4 @@
+<Title>YouBet</Title>
 <?php
     session_start();
     require('php/getConnection.php');

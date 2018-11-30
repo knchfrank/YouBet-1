@@ -87,8 +87,8 @@ if ($conn->connect_error) {
             </ul>
             <ul class=\"navbar-nav ml-auto\">
             <li class=\"nav-item\"> <a class=\"nav-link\">Your Balance:</a> </li>
-            <li class=\"nav-item\"> <a class=\"nav-link\" style=\"color:lightgreen\"> $Credit </a> </li>
-            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"http://localhost/YouBet/account.php\">Hello, $UserName </a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" style=\"color:lightgreen\"> $Credit Credits</a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\">Hello, $UserName </a> </li>
             </ul> <a class=\"btn navbar-btn ml-md-2 text-light btn-danger\" href=\"http://localhost/YouBet/php/Userlogin.php\"><i class=\"fa fa-sign-out\"></i>&nbsp;sign out</a>";
           } else {
             echo "<ul class=\"navbar-nav ml-auto; margin-left:0px;\">
