@@ -19,12 +19,14 @@
           <i class="fa d-inline fa-lg fa-circle-o"></i>
           <b> Youbet</b>
         </a>
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item"> <a class="nav-link" href="#">Features</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#">Pricing</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#">About</a> </li>
+        <ul class="navbar-nav mr-auto">
+        <li class="nav-item"> <a class="nav-link" href="login.php"><i class="fa fa-puzzle-piece"></i>&nbsp;My Bets</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="login.php"><i class="fa fa-credit-card-alt"></i>&nbsp;Credit</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="login.php"><i class="fa fa-user fa-fw"></i>Account</a> </li>
+            <li class="nav-item"> <a class="nav-link" ><i class="fa fa-star-o"></i>&nbsp;Promotions</a> </li>
+            <li class="nav-item"> <a class="nav-link" ><i class="fa fa-envelope-o	"></i>&nbsp;News</a> </li>
         </ul>
-        <ul class="navbar-nav">
+        <ul class="navbar-nav ml-auto">
           <li class="nav-item"> <a class="btn navbar-btn ml-md-2 btn-orange text-light " href="register.html"><i class="fa fa-registered"></i>&nbsp;SIGN UP</a> </li>
         </ul>
       </div>
@@ -36,10 +38,10 @@
         <div class="mx-auto col-md-6 col-10 bg-white p-5" style="">
           <h1 class="mb-4 text-primary">Log in</h1>
           <form action="http://localhost/Youbet/php/Userlogin.php" method="post">
-            <div class="form-group"> <input type="text" class="form-control" placeholder="User name" name="username"> </div>
+            <div class="form-group"> <input type="text" class="form-control" placeholder="Username" name="username"> </div>
             <div class="form-group mb-3"> <input type="password" class="form-control" placeholder="Password" name="password"> <small class="form-text text-muted text-right">
-                <a href="#" class=""> Forgotten account? </a>
-              </small> </div> <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="https://www.facebook.com/buchanothai" class=""> Forgotten account? </a>
+              </small> </div> <button type="submit" class="btn btn-primary">Log in</button>
           </form>
         </div>
       </div>
