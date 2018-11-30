@@ -26,6 +26,10 @@ $isUsed = 0 ;
 $message1 = "Confirm Password Not Match";
 $message2 = "Username is already exist";
 $message3 = "Complete Register, Welcome to YouBet";
+$bankAcount = $con->real_escape_string($_POST['Bankaccount']);
+$CCV = $con->real_escape_string($_POST['CCV']);
+$expireMM = $con->real_escape_string($_POST['expireMM']);
+$expireYY = $con->real_escape_string($_POST['expireYY']);
 
 if(strcmp($password,$passwordConfirm) != 0) { 		// check same password 
 	echo "<script> alert('$message1');window.location = '../register.html';</script>";
@@ -50,8 +54,8 @@ if($isUsed)
 	echo "<script> alert('$message2');window.location = '../register.html';</script>";
 } else {
 	$sql = "
-		INSERT INTO User (UserID, Name, Password, Email)
-		VALUES ('$username','$name','$password','$email')
+		INSERT INTO User (UserID, Name, Password, Email,BankAccount,CCV,expireMM,expireYY)
+		VALUES ('$username','$name','$password','$email','$bankAcount','$CCV','$expireMM','$expireYY')
 		";  
 	if (isset($_POST['username']) && isset($_POST['password']))
 	{

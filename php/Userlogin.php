@@ -7,6 +7,7 @@ $con = getConnection();
 if ($con->connect_error) {
     echo "Failed to connect to MySQL: " . $conn->connect_error;
 }
+$Web = $_SESSION['Web'];
 $_SESSION['Username'] = mysqli_real_escape_string($con, $_POST['username']);
 $username = mysqli_real_escape_string($con,$_POST['username']);
 $_SESSION['password'] = mysqli_real_escape_string($con, $_POST['password_']);
