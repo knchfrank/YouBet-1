@@ -123,13 +123,8 @@ if ($conn->connect_error) {
             </ul>
             <ul class=\"navbar-nav ml-auto\">
             <li class=\"nav-item\"> <a class=\"nav-link\">Your Balance:</a> </li>
-<<<<<<< HEAD
-            <li class=\"nav-item\"> <a class=\"nav-link\" style=\"color:lightgreen\"> $Credit </a> </li>
-            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"account.php\">Hello, $UserName </a> </li>
-=======
             <li class=\"nav-item\"> <a class=\"nav-link\" style=\"color:lightgreen\"> $Credit Credits</a> </li>
             <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\">Hello, $UserName </a> </li>
->>>>>>> 920c4012b900cee0dd6c2fe1735710fda49f2df3
             </ul> <a class=\"btn navbar-btn ml-md-2 text-light btn-danger\" href=\"php/Userlogin.php\"><i class=\"fa fa-sign-out\"></i>&nbsp;sign out</a>";
           } else {
             echo "<ul class=\"navbar-nav ml-auto; margin-left:0px;\">
@@ -386,7 +381,8 @@ if ($conn->connect_error) {
           </div>
     <script>
       var selectedBet = '';
-      var matchResult = '';
+      var matchResult = 0;
+      var amount = 0;
       function changeBet(input) {
         if(input == "id06")
           matchResult = 1;
@@ -439,6 +435,10 @@ if ($conn->connect_error) {
         console.log(amount+" "+<?php echo $Credit?>);
         if (amount > <?php echo $Credit?>)
           alert("Credit not enough");
+        else if (matchResult == 0)
+          alert('Select odds');
+        else if (amount <= 0)
+          alert('Bet at least 1 Credit');
         else {
           matchID = document.getElementById("id01").innerHTML
           odd = document.getElementById(selectedBet).innerHTML;
