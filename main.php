@@ -115,11 +115,11 @@ if ($conn->connect_error) {
         <?php
           if($_SESSION["isLogged"] == 1) {
             echo "<ul class=\"navbar-nav ml-auto; margin-left:0px;\">
-            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"login.php\"><i class=\"fa fa-puzzle-piece\"></i>&nbsp;My Bets</a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-puzzle-piece\"></i>&nbsp;My Bets</a> </li>
             <li class=\"nav-item\"> <a class=\"nav-link\" href=\"creditmanagement.php\"><i class=\"fa fa-credit-card-alt\"></i>&nbsp;Credit</a> </li>
-            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"account.php\"><i class=\"fa fa-user fa-fw\"></i>Account</a> </li>
-            <li class=\"nav-item\"> <a class=\"nav-link\" ><i class=\"fa fa-star-o\"></i>&nbsp;Promotions</a> </li>
-            <li class=\"nav-item\"> <a class=\"nav-link\" ><i class=\"fa fa-envelope-o	\"></i>&nbsp;News</a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-user fa-fw\"></i>Account</a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-star-o\"></i>&nbsp;Promotions</a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-envelope-o	\"></i>&nbsp;News</a> </li>
             </ul>
             <ul class=\"navbar-nav ml-auto\">
             <li class=\"nav-item\"> <a class=\"nav-link\">Your Balance:</a> </li>
@@ -128,11 +128,11 @@ if ($conn->connect_error) {
             </ul> <a class=\"btn navbar-btn ml-md-2 text-light btn-danger\" href=\"php/Userlogin.php\"><i class=\"fa fa-sign-out\"></i>&nbsp;sign out</a>";
           } else {
             echo "<ul class=\"navbar-nav ml-auto; margin-left:0px;\">
-            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"login.php\"><i class=\"fa fa-puzzle-piece\"></i>&nbsp;My Bets</a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-puzzle-piece\"></i>&nbsp;My Bets</a> </li>
             <li class=\"nav-item\"> <a class=\"nav-link\" href=\"login.php\"><i class=\"fa fa-credit-card-alt\"></i>&nbsp;Credit</a> </li>
-            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"login.php\"><i class=\"fa fa-user fa-fw\"></i>Account</a> </li>
-            <li class=\"nav-item\"> <a class=\"nav-link\" ><i class=\"fa fa-star-o\"></i>&nbsp;Promotions</a> </li>
-            <li class=\"nav-item\"> <a class=\"nav-link\" ><i class=\"fa fa-envelope-o	\"></i>&nbsp;News</a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-user fa-fw\"></i>Account</a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-star-o\"></i>&nbsp;Promotions</a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-envelope-o	\"></i>&nbsp;News</a> </li>
             </ul>
             <ul class=\"navbar-nav ml-auto\">
             <li class=\"nav-item\" > <a class=\"btn btn-primary\" href=\"login.php\">LOG IN</a> </li>

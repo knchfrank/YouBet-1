@@ -79,8 +79,8 @@ if ($conn->connect_error) {
       <?php
           if($_SESSION["isLogged"] == 1) {
             echo "<ul class=\"navbar-nav ml-auto; margin-left:0px;\">
-            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"login.php\"><i class=\"fa fa-puzzle-piece\"></i>&nbsp;My Bets</a> </li>
-            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-credit-card-alt\"></i>&nbsp;Credit</a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-puzzle-piece\"></i>&nbsp;My Bets</a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"creditmanagement.php\"><i class=\"fa fa-credit-card-alt\"></i>&nbsp;Credit</a> </li>
             <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-user fa-fw\"></i>Account</a> </li>
             <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-star-o\"></i>&nbsp;Promotions</a> </li>
             <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-envelope-o	\"></i>&nbsp;News</a> </li>
@@ -92,9 +92,9 @@ if ($conn->connect_error) {
             </ul> <a class=\"btn navbar-btn ml-md-2 text-light btn-danger\" href=\"http://localhost/YouBet/php/Userlogin.php\"><i class=\"fa fa-sign-out\"></i>&nbsp;sign out</a>";
           } else {
             echo "<ul class=\"navbar-nav ml-auto; margin-left:0px;\">
-            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"login.php\"><i class=\"fa fa-puzzle-piece\"></i>&nbsp;My Bets</a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-puzzle-piece\"></i>&nbsp;My Bets</a> </li>
             <li class=\"nav-item\"> <a class=\"nav-link\" href=\"login.php\"><i class=\"fa fa-credit-card-alt\"></i>&nbsp;Credit</a> </li>
-            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"login.php\"><i class=\"fa fa-user fa-fw\"></i>Account</a> </li>
+            <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-user fa-fw\"></i>Account</a> </li>
             <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-star-o\"></i>&nbsp;Promotions</a> </li>
             <li class=\"nav-item\"> <a class=\"nav-link\" href=\"#\"><i class=\"fa fa-envelope-o	\"></i>&nbsp;News</a> </li>
             </ul>
@@ -131,14 +131,14 @@ if ($conn->connect_error) {
       </div>
       <div class="row justify-content-center align-items-center">
         <div class="col-md-2">
-          <img class="img-fluid d-block mx-auto" src="Pics/team/celtic.png" style="	width: 70px;">
+          <!-- <img class="img-fluid d-block mx-auto" src="Pics/team/celtic.png" style="	width: 70px;"> -->
           <h4 class=""><div><?php echo $row['Teamhome']?></div></h4>
         </div>
         <div class="col-md-4">
           <h3 class=""><div style="display: inline"><?php echo $row['Goalscoredhome']?></div> - <div style="display: inline"><?php echo $row['Goalscoredaway']?></div></h3>
         </div>
         <div class="col-md-2">
-          <img class="img-fluid d-block mx-auto" src="Pics/team/st. johnstone.png" style="	width: 70px;">
+          <!-- <img class="img-fluid d-block mx-auto" src="Pics/team/st. johnstone.png" style="	width: 70px;"> -->
           <h4 class=""><div><?php echo $row['Teamaway']?></div></h4>
         </div>
       </div>

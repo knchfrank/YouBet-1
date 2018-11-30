@@ -38,9 +38,9 @@ if ($conn->connect_error) {
         <ul class="navbar-nav mr-auto">
           <li class="nav-item"> <a class="nav-link" href="#"><i class="fa fa-puzzle-piece"></i>&nbsp;My Bets</a> </li>
           <li class="nav-item"> <a class="nav-link" href="creditmanagement.php"><i class="fa fa-credit-card-alt"></i>&nbsp;Credit</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="account.php"><i class="fa fa-user fa-fw"></i>Account</a> </li>
-          <li class="nav-item"> <a class="nav-link" ><i class="fa fa-star-o"></i>&nbsp;Promotions</a> </li>
-          <li class="nav-item"> <a class="nav-link" ><i class="fa fa-envelope-o	"></i>&nbsp;News</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#"><i class="fa fa-user fa-fw"></i>Account</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#"><i class="fa fa-star-o"></i>&nbsp;Promotions</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#"><i class="fa fa-envelope-o	"></i>&nbsp;News</a> </li>
         </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item"> <a class="nav-link">Your Balance:</a> </li>
@@ -85,9 +85,9 @@ if ($conn->connect_error) {
                 <h3 class="">Available Balance :&nbsp;<span class="badge badge-success"><?php echo $Credit ." Credit"?></span></h3>
                 
                 <form action = "totup.php" method="get">
-                  <div class="form-group"> <label for="form17">Username</label> <input type="text" class="form-control" name="username" value=""> </div>
+                  <!-- <div class="form-group"> <label for="form17">Username</label> <input type="text" class="form-control" name="username" value=""> </div>
                   
-                  <div class="form-group"> <label for="form17">CCV</label> <input type="password" class="form-control" name="ccv"> </div>
+                  <div class="form-group"> <label for="form17">CCV</label> <input type="password" class="form-control" name="ccv"> </div> -->
                 <div class="row">
                   <div class="text-center col-md-12">
                   </div>
@@ -113,6 +113,7 @@ if ($conn->connect_error) {
                             <button type="submit" name="cred" value= 100  class="btn btn-primary mt-3">
                               Confirm
                             </button>
+                      </form>
                       </div>
                     </div>
                   </div>
@@ -133,10 +134,11 @@ if ($conn->connect_error) {
                           <li>Not too high</li>
                           <li>Interesting</li>
                         </ul>
+                          <form action = "totup.php" method="get">
                           <button type="submit" name="cred" value=500 class="btn btn-primary mt-3">
                             Confirm
                           </button>
-                        <!-- </form> -->
+                        </form>
                       </div>
                     </div>
                   </div>
@@ -157,12 +159,12 @@ if ($conn->connect_error) {
                           <li>Your business</li>
                           <li>Think carefully</li>
                         </ul>
-                        <!-- <form class="form-inline"> -->
-                        <!-- <form action = "totup.php" method="get" form class="text-left"> -->
+                        <!-- <form class="form-inline">  -->
+                        <form action = "totup.php" method="get">
                           <div class="form-group">
-                            <input type="number" class="form-control w-75" name="cred" value = ""> 
+                            <input type="number" class="form-control w-75" name="cred" placeholder="0.00 THB" value = ""> 
                           </div>
-                          <button type="submit" value="cred" class="btn btn-primary mt-2">Confirm</button>
+                          <button type="submit" value ="cred" class="btn btn-primary mt-2">Confirm</button>
                         </form>
                       </div>
                     </div>
@@ -175,8 +177,8 @@ if ($conn->connect_error) {
                 <h1>Withdraw</h1>
                 <h3 class="">Available Balance :&nbsp;<span class="badge badge-success"><?php echo $Credit?></span></h3>
                 <form class="text-left">
-                  <div class="form-group"> <label for="form17">User Name</label> <input type="text" class="form-control" id="form17" placeholder="Sarin Post" style=""> </div>
-                  <div class="form-group"> <label for="form17">Password</label> <input type="password" class="form-control" id="form17" placeholder="*************" style=""> </div>
+                  <!-- <div class="form-group"> <label for="form17">User Name</label> <input type="text" class="form-control" id="form17" placeholder="Sarin Post" style=""> </div>
+                  <div class="form-group"> <label for="form17">Password</label> <input type="password" class="form-control" id="form17" placeholder="*************" style=""> </div> -->
                 </form>
                 <div class="row">
                   <div class="text-center col-md-12">
@@ -201,7 +203,11 @@ if ($conn->connect_error) {
                           <li>Just wanted</li>
                           <li>For user who is calm to claim it.</li>
                         </ul>
-                        <a class="btn btn-primary mt-3" href="#">Confirm</a>
+                        <form action = "withdraw.php" method="get">
+                        <button type="submit" name="cred" value= 100  class="btn btn-primary mt-3">
+                              Confirm
+                        </button>
+                        </form>
                       </div>
                     </div>
                   </div>
@@ -221,7 +227,12 @@ if ($conn->connect_error) {
                           <li>Just require it</li>
                           <li>Not too high level of demand</li>
                           <li>Easily and slowly claim it</li>
-                        </ul> <a class="btn btn-primary mt-3" href="#">Confirm</a>
+                        </ul> 
+                        <form action = "withdraw.php" method="get">
+                        <button type="submit" name="cred" value=500  class="btn btn-primary mt-3">
+                              Confirm
+                        </button>
+                        </form>
                       </div>
                     </div>
                   </div>
@@ -242,10 +253,10 @@ if ($conn->connect_error) {
                           <li>Where is my money?</li>
                           <li>Extremely claim money</li>
                         </ul>                       
-                        <form class="form-inline" action="" method = "">
+                        <form action = "withdraw.php" method="get">
                           <div class="form-group">
-                            <input type="number" class="form-control w-75" id="inputpasswordinline" placeholder="0.00 THB"> </div>
-                          <button type="submit" class="btn btn-primary mt-2">Confirm</button>
+                            <input type="number" class="form-control w-75" name="cred" placeholder="0.00 THB" value =""> </div>
+                          <button type="submit" value ="cred" class="btn btn-primary mt-2">Confirm</button>
                         </form>
                       </div>
                     </div>
