@@ -148,7 +148,7 @@ if ($conn->connect_error) {
     <div class="container">
       <div class="row">
         <div class="p-5 mx-auto mx-md-0 ml-md-auto col-10 col-md-9">
-          <h3 class="display-4">Welcome to Youbet</h3>
+          <h3 class="display-4">Welcome to Yoube</h3>
           <p class="mb-3">Of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.</p>
           <form class="form-inline d-flex justify-content-end">
             <div class="input-group">
@@ -207,9 +207,9 @@ if ($conn->connect_error) {
                             <td class="text-center"><?php echo $row["Begindate"]; ?></td></a>
                             <td class="text-center"><?php echo $row["Handicaphome"] ." : ". $row["Handicapaway"]?></td>
                             <td class="text-center"><a href="teaminfo.html?team=<?php echo $row["Teamhome"]?>"><?php echo $row["Teamhome"]?></a></td>
-                            <td class="text-center"><a class="btn rounded-0 btn-info text-light" onclick="openForm()"><?php echo $row["Oddshome"] ?></a></td>
-                            <td class="text-center"><a class="btn rounded-0 btn-info text-light" onclick="openForm()"><?php echo $row["Oddsdraw"] ?></a></td>
-                            <td class="text-center"><a class="btn btn-info rounded-0 text-light" onclick="openForm()"><?php echo $row["Oddsaway"] ?></a></td>
+                            <td class="text-center"><a class="btn rounded-0 btn-info text-light" onclick="openForm('<?php echo $row["MatchID"] ?>')"><?php echo $row["Oddshome"] ?></a></td>
+                            <td class="text-center"><a class="btn rounded-0 btn-info text-light" onclick="openForm('<?php echo $row["MatchID"] ?>')"><?php echo $row["Oddsdraw"] ?></a></td>
+                            <td class="text-center"><a class="btn btn-info rounded-0 text-light" onclick="openForm('<?php echo $row["MatchID"] ?>')"><?php echo $row["Oddsaway"] ?></a></td>
                             <td style="text-center"><a href="teaminfo.html?team=<?php echo $row["Teamaway"]?>"><?php echo $row["Teamaway"] ?></td>
                             <td class="text-center"><?php echo $row["Type"] ?></td>
                             </tr>  
@@ -228,7 +228,6 @@ if ($conn->connect_error) {
         } else {
             echo "0 results";
         }
-        $conn->close();
     ?> 
 
   <div class="py-3 bg-dark">
@@ -269,20 +268,21 @@ if ($conn->connect_error) {
         </div>
       </div>
     </div>
+
           <div class="form-popup" id="myForm" style="display: none; width: 485px;">
             <div class="row">
               <div class="col-md-12">
-                <h1 class="display-4 text-center py-1 mb-0 text-secondary bg-light">BETTING</h1>
+                <h1 class="display-4 text-center py-1 mb-0 text-secondary bg-light">BETTING : <div id="id01"></div></h1>
                 <div class="row flex-row justify-content-center">
                   <div class="col-lg-11 flex-row justify-content-between bg-secondary d-inline-flex align-items-end"><a class="btn btn-warning py-0 my-1" href="#">Match Info</a>
-                    <p class="mb-0 py-1 text-white">Your balance&nbsp;<span class="badge border-warning border text-warning">1500.98</span>&nbsp;Credit</p>
+                    <p class="mb-0 py-1 text-white">Your balance&nbsp;<span class="badge border-warning border text-warning"><?php echo $Credit ?></span>&nbsp;Credit</p>
                   </div>
                 </div>
                 <div class="row flex-row justify-content-center">
                   <div class="border col-lg-11 flex-row justify-content-between bg-secondary d-inline-flex align-items-end">
-                    <p class="mb-0 py-1 text-white">Celtic FC</p>
-                    <p class="mb-0 py-1 text-white">HDC&nbsp;<span class="badge border-warning border text-warning">1:0</span></p>
-                    <p class="mb-0 py-1 text-white">Ajax</p>
+                    <p class="mb-0 py-1 text-white" id="id02"></p>
+                    <p class="mb-0 py-1 text-white">HDC&nbsp;<span class="badge border-warning border text-warning" id="id04"></span>:<span class="badge border-warning border text-warning" id="id05"></span></p>
+                    <p class="mb-0 py-1 text-white" id="id03"></p>
                   </div>
                 </div>
                 <div class="row flex-row justify-content-center">
@@ -293,12 +293,12 @@ if ($conn->connect_error) {
                   </div>
                 </div>
                 <div class="row justify-content-center">
-                  <div class="border col-lg-11 bg-secondary">
+                  <!-- <div class="border col-lg-11 bg-secondary">
                     <p class="text-white m-0"> Win Probability </p>
                     <div class="progress my-1">
                       <div class="progress-bar progress-bar-striped bg-primary" role="progressbar" style="width:78.5%">78.5%</div>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
                 <div class="row flex-row justify-content-center">
                   <div class="col-lg-11 flex-row bg-secondary d-inline-flex align-items-center justify-content-center">
@@ -309,9 +309,9 @@ if ($conn->connect_error) {
                 </div>
                 <div class="row flex-row justify-content-center">
                   <div class="col-lg-11 flex-row bg-secondary d-inline-flex align-items-center justify-content-center">
-                    <a class="btn pi-draggable btn-outline-light m-1 p-3" href="#">0.33</a>
-                    <a class="btn pi-draggable btn-outline-light m-1 p-3" href="#">0.88</a>
-                    <a class="btn pi-draggable btn-outline-light m-1 p-3" href="#">0.8</a>
+                    <a class="btn pi-draggable btn-outline-light m-1 p-3" href="#" id="id06" onclick="changeBet('id06')"></a>
+                    <a class="btn pi-draggable btn-outline-light m-1 p-3" href="#" id="id07" onclick="changeBet('id07')"></a>
+                    <a class="btn pi-draggable btn-outline-light m-1 p-3" href="#" id="id08" onclick="changeBet('id08')"></a>
                   </div>
                 </div>
                 <div class="row flex-row justify-content-center">
@@ -322,18 +322,19 @@ if ($conn->connect_error) {
                 </div>
                 <div class="row flex-row justify-content-center">
                   <div class="flex-row bg-secondary d-inline-flex col-lg-5 align-items-center justify-content-end">
-                    <p class="mb-0 py-1 text-white">Your Bet: DRAW&nbsp;<span class="badge border-warning border text-warning badge-danger">0.88</span></p>
+                    <p class="mb-0 py-1 text-white">Your Bet: <span id="HDA"></span>&nbsp;<span class="badge border-warning border text-warning badge-danger" id="display-bet">0.88</span></p>
                   </div>
                   <div class="col-lg-6 bg-secondary">
                     <form class="form-inline pi-draggable my-1">
                       <div class="input-group">
-                        <input type="number" class="form-control" placeholder="500.00">
+                        <!-- <input type="number" id="amount" class="form-control" placeholder="500.00" oninput="onCreditChange()"> -->
+                        <input type="number" id="amount" class="form-control" placeholder="500.00">
                         <div class="input-group-append"><button class="btn btn-warning text-body" type="button">Credit</button></div>
                       </div>
                     </form>
                   </div>
                 </div>
-                <div class="row flex-row justify-content-center">
+                <!-- <div class="row flex-row justify-content-center">
                   <div class="border col-lg-11 flex-row justify-content-between d-inline-flex align-items-end bg-info">
                     <p class="mb-0 py-1 text-white">Betting Information</p>
                   </div>
@@ -343,7 +344,7 @@ if ($conn->connect_error) {
                     <p class="mb-0 py-1 text-danger">Bet Value</p>
                   </div>
                   <div class="border flex-row d-inline-flex align-items-end col-lg-5 justify-content-end bg-light">
-                    <p class="mb-0 py-1 text-danger">500.00 credit</p>
+                    <p class="mb-0 py-1 text-danger"><span id="display-credit">500.00</span> credit</p>
                   </div>
                 </div>
                 <div class="row flex-row justify-content-center">
@@ -369,22 +370,86 @@ if ($conn->connect_error) {
                   <div class="border flex-row d-inline-flex align-items-end col-lg-5 justify-content-end bg-light">
                     <p class="mb-0 py-1 text-secondary">1000.94 credit</p>
                   </div>
-                </div>
+                </div> -->
                 <div class="row flex-row justify-content-center">
-                  <div class="col-lg-11 flex-row justify-content-between bg-secondary d-inline-flex align-items-end"><a class="btn btn-success py-0 my-1" href="#" style="	width: 260px;" >PLACE BET</a>
+                  <div onclick="betForm('<?php echo $UserName?>')" class="col-lg-11 flex-row justify-content-between bg-secondary d-inline-flex align-items-end"><a class="btn btn-success py-0 my-1" href="#" style="	width: 260px;" >PLACE BET</a>
                     <a class="btn btn-danger py-0 my-1 text-white" style="	width: 160px;" onclick="closeForm()">CANCEL</a>
                   </div>
-                </div>
+                </div> 
               </div>
             </div>
           </div>
     <script>
-      function openForm() {
-          document.getElementById("myForm").style.display = "block";
+      var selectedBet = '';
+      var matchResult = 0;
+      var amount = 0;
+      function changeBet(input) {
+        if(input == "id06")
+          matchResult = 1;
+        else if(input == "id07")
+          matchResult = 2;
+        else if(input == "id08")
+          matchResult = 3;
+        document.getElementById('display-bet').innerHTML = document.getElementById(input).innerHTML;
+        selectedBet = input;
       }
 
+      // function onCreditChange() {
+      //   document.getElementById('display-credit').innerHTML = document.getElementById('amount').value
+      // }
+
+      function openForm(matchID) {
+          document.getElementById("myForm").style.display = "block";
+          var xmlhttp = new XMLHttpRequest();
+          var url = location.protocol + '//' + location.host + "/YouBet/getBetinfo.php?matchID=" + matchID;
+          console.log("send matchID " + matchID);
+          xmlhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                  myObj = JSON.parse(this.responseText);
+                  console.log(myObj.matchID);
+                  console.log(myObj.teamhome);
+                  console.log(myObj.teamaway);
+                  console.log(myObj.handicaphome);
+                  console.log(myObj.handicapaway);
+                  console.log(myObj.oddshome);
+                  console.log(myObj.oddsdraw);
+                  console.log(myObj.oddsaway);
+                  document.getElementById("id01").innerHTML = myObj.matchID;
+                  document.getElementById("id02").innerHTML = myObj.teamhome;
+                  document.getElementById("id03").innerHTML = myObj.teamaway;
+                  document.getElementById("id04").innerHTML = myObj.handicaphome;
+                  document.getElementById("id05").innerHTML = myObj.handicapaway;
+                  document.getElementById("id06").innerHTML = myObj.oddshome;
+                  document.getElementById("id07").innerHTML = myObj.oddsdraw;
+                  document.getElementById("id08").innerHTML = myObj.oddsaway;
+              }
+          };
+          xmlhttp.open("GET", url, true);
+          xmlhttp.send();
+      }
       function closeForm() {
         document.getElementById("myForm").style.display = "none";
+      }
+      function betForm(userID){
+        amount = document.getElementById("amount").value;
+        console.log(amount+" "+<?php echo $Credit?>);
+        if (amount > <?php echo $Credit?>)
+          alert("Credit not enough");
+        else if (matchResult == 0)
+          alert('Select odds');
+        else if (amount <= 0)
+          alert('Bet at least 1 Credit');
+        else {
+          matchID = document.getElementById("id01").innerHTML
+          odd = document.getElementById(selectedBet).innerHTML;
+          var xmlhttp = new XMLHttpRequest();
+          var url = location.protocol + '//' + location.host + "/YouBet/placeBet.php?userID=" + userID + "&odd=" + odd + "&amount=" + amount + "&matchID=" + matchID + "&matchResult=" + matchResult + "&credit=" + <?php echo $Credit?>;
+          console.log("send userID " + userID);
+          xmlhttp.open("GET", url, true);
+          xmlhttp.send();
+          alert('Betting done');
+          window.location = 'main.php';
+        }
       }
     </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -396,6 +461,7 @@ if ($conn->connect_error) {
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous" style=""></script>
+  <?php $con->close(); ?>
 </body>
 
 </html>
