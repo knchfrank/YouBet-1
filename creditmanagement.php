@@ -69,8 +69,8 @@ if ($conn->connect_error) {
             <ul class="list-group list-group-flush">
               <li class="list-group-item" ><a href = "#">My Profile </a></li>
               <li class="list-group-item" ><a href = "#">Edit Profile </a></li>
-              <li class="list-group-item" ><a href = "#" data-toggle="tab" data-target="#tabtwo">Withdraw</a></li>
-              <li class="list-group-item" ><a href = "#" data-toggle="tab" data-target="#tabone">Top-up</a></li>
+              <li class="list-group-item" ><a href = "#">Withdraw / Topup</a></li>
+              <!-- <li class="list-group-item" ><a href = "#" data-toggle="tab" data-target="#tabone">Top-up</a></li> -->
               <li class="list-group-item" ><a href = "#">Credit Statement </a></li>
               <li class="list-group-item" ><a href = "#">Betting History </a></li>
               <li class="list-group-item" ><a href = "#">Account Binding </a></li>
@@ -187,7 +187,7 @@ if ($conn->connect_error) {
                 </form>
                 <div class="row">
                   <div class="text-center col-md-12">
-                    <h1>Withdraw</h1>
+                    <!-- <h1>Withdraw</h1> -->
                   </div>
                 </div>
                 <div class="row">
